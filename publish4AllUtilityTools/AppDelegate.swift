@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,7 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        let output = system("touch ~/Desktop/text.text")
+        
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

@@ -21,7 +21,6 @@ class ViewController: NSViewController {
         let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
         let request = NSURLRequest(URL: fragUrl)
         self.webViewer.mainFrame.loadRequest(request)
-        println(request)
     }
 
     override var representedObject: AnyObject? {
