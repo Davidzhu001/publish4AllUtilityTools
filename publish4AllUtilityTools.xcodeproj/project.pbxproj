@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		BC5AFAAC1B9F784500055872 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
-		BC5AFAAF1B9F883900055872 /* test.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = test.rb; sourceTree = "<group>"; };
+		BC5AFAB01BA0DBAE00055872 /* Syntax.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = Syntax.rb; sourceTree = "<group>"; };
 		BC90FA811B9A279B00BE7824 /* publish4AllUtilityTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = publish4AllUtilityTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC90FA851B9A279B00BE7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC90FA861B9A279B00BE7824 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,20 +58,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BC5AFAAD1B9F880E00055872 /* Ruby */ = {
-			isa = PBXGroup;
-			children = (
-				BC5AFAAF1B9F883900055872 /* test.rb */,
-			);
-			name = Ruby;
-			sourceTree = "<group>";
-		};
 		BC90FA781B9A279B00BE7824 = {
 			isa = PBXGroup;
 			children = (
 				BC90FA831B9A279B00BE7824 /* publish4AllUtilityTools */,
 				BC90FA961B9A279B00BE7824 /* publish4AllUtilityToolsTests */,
 				BC90FA821B9A279B00BE7824 /* Products */,
+				BC5AFAB01BA0DBAE00055872 /* Syntax.rb */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,7 +80,6 @@
 		BC90FA831B9A279B00BE7824 /* publish4AllUtilityTools */ = {
 			isa = PBXGroup;
 			children = (
-				BC5AFAAD1B9F880E00055872 /* Ruby */,
 				BC90FAA31B9A281F00BE7824 /* webs */,
 				BC90FA861B9A279B00BE7824 /* AppDelegate.swift */,
 				BC90FA881B9A279B00BE7824 /* ViewController.swift */,

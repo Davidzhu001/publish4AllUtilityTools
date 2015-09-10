@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let output = system("touch ~/Desktop/text.text")
         
     }
 
