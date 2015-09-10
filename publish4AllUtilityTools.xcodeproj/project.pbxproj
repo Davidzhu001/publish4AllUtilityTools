@@ -13,6 +13,7 @@
 		BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC90FA8C1B9A279B00BE7824 /* Main.storyboard */; };
 		BC90FA9A1B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */; };
 		BC90FAA71B9A284D00BE7824 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BC90FAA61B9A284D00BE7824 /* index.html */; };
+		BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */ = {isa = PBXBuildFile; fileRef = BCDF7D9D1BA221EF007E44E5 /* some.rb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		BC90FA981B9A279B00BE7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publish4AllUtilityToolsTests.swift; sourceTree = "<group>"; };
 		BC90FAA61B9A284D00BE7824 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		BCDF7D9D1BA221EF007E44E5 /* some.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = some.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				BC90FAA61B9A284D00BE7824 /* index.html */,
+				BCDF7D9D1BA221EF007E44E5 /* some.rb */,
 			);
 			name = webs;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC90FAA71B9A284D00BE7824 /* index.html in Resources */,
+				BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */,
 				BC90FA8B1B9A279B00BE7824 /* Images.xcassets in Resources */,
 				BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */,
 			);

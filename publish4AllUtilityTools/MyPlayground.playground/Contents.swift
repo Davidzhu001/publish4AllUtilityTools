@@ -2,12 +2,18 @@
 
 import Cocoa
 
+var parser = NSXMLParser()
+var posts = NSMutableArray()
+var elements = NSMutableDictionary()
+var element = NSString()
+var title1 = NSMutableString()
+var date = NSMutableString()
 
-let filemgr = NSFileManager.defaultManager()
-let currentPath = filemgr.currentDirectoryPath
-let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-    .UserDomainMask, true)
-
-let docsDir = dirPaths[0] as! String
-
-let tmpDir = NSTemporaryDirectory() as String
+func beginParsing()
+{
+    posts = []
+    parser = NSXMLParser(contentsOfURL: (NSURL (fileURLWithPath:"http://images.apple.com/main/rss/hotnews/hotnews.rss")))!
+    parser.delegate = self
+    parser.parse()
+    tbData!.reloadData()
+}

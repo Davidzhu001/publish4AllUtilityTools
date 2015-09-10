@@ -9,3 +9,10 @@
 let urlOfHtml = String(stringInterpolationSegment: NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)!)
 println(urlOfHtml)
 let input = system("open " + urlOfHtml )
+
+
+
+let sourcePath = String(stringInterpolationSegment: NSBundle.mainBundle().pathForResource("some", ofType:"rb")!)
+
+println(sourcePath)
+system("ruby " + sourcePath)
