@@ -670,21 +670,21 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="publish4AllUtilityTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="485" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1245" height="521"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <webView translatesAutoresizingMaskIntoConstraints="NO" id="CcD-st-4nI">
-                                <rect key="frame" x="0.0" y="0.0" width="485" height="250"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1245" height="501"/>
                                 <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                                     <nil key="identifier"/>
                                 </webPreferences>
                             </webView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" id="1ti-yH-ABI"/>
-                            <constraint firstItem="CcD-st-4nI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="N8U-HE-2hM"/>
-                            <constraint firstAttribute="bottom" secondItem="CcD-st-4nI" secondAttribute="bottom" id="VdY-TV-HaN"/>
-                            <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="sXi-Lf-3S0"/>
+                            <constraint firstItem="CcD-st-4nI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="0EW-qa-p8t"/>
+                            <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" id="IFM-4t-m8k"/>
+                            <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="dIH-Vy-voi"/>
+                            <constraint firstAttribute="bottom" secondItem="CcD-st-4nI" secondAttribute="bottom" id="hUU-FL-OWP"/>
                         </constraints>
                     </view>
                     <connections>
@@ -693,7 +693,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77.5" y="655"/>
+            <point key="canvasLocation" x="457.5" y="780.5"/>
         </scene>
     </scenes>
 </document>
