@@ -65,7 +65,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             
             println(selectedItem)
             
-            self.tableView.deselectRow(self.tableView.selectedRow)
+//            self.tableView.deselectRow(self.tableView.selectedRow)
         }
     }
 }
