@@ -13,6 +13,7 @@
 		BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC90FA8C1B9A279B00BE7824 /* Main.storyboard */; };
 		BC90FA9A1B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */; };
 		BC90FAA71B9A284D00BE7824 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BC90FAA61B9A284D00BE7824 /* index.html */; };
+		BCD4A0411BA77088000208A9 /* PrinterDataResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD4A0401BA77088000208A9 /* PrinterDataResources.swift */; };
 		BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */ = {isa = PBXBuildFile; fileRef = BCDF7D9D1BA221EF007E44E5 /* some.rb */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		BC90FA981B9A279B00BE7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publish4AllUtilityToolsTests.swift; sourceTree = "<group>"; };
 		BC90FAA61B9A284D00BE7824 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		BCD4A0401BA77088000208A9 /* PrinterDataResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterDataResources.swift; sourceTree = "<group>"; };
 		BCDF7D9D1BA221EF007E44E5 /* some.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = some.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				BC90FAA31B9A281F00BE7824 /* webs */,
 				BC90FA861B9A279B00BE7824 /* AppDelegate.swift */,
 				BC90FA881B9A279B00BE7824 /* ViewController.swift */,
+				BCD4A0401BA77088000208A9 /* PrinterDataResources.swift */,
 				BC90FA8A1B9A279B00BE7824 /* Images.xcassets */,
 				BC90FA8C1B9A279B00BE7824 /* Main.storyboard */,
 				BC90FA841B9A279B00BE7824 /* Supporting Files */,
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD4A0411BA77088000208A9 /* PrinterDataResources.swift in Sources */,
 				BC90FA891B9A279B00BE7824 /* ViewController.swift in Sources */,
 				BC90FA871B9A279B00BE7824 /* AppDelegate.swift in Sources */,
 			);

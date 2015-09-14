@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>185BDF08-067A-4042-8175-9C95C9A813BE</string>
 	<key>IDESourceControlProjectName</key>
-	<string>publish4AllUtilityTools</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>34342298CD4FF7F60D5077E8441C3993CD2DD755</key>
 		<string>https://github.com/Davidzhu001/publish4AllUtilityTools.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>publish4AllUtilityTools.xcodeproj</string>
+	<string>publish4AllUtilityTools.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>34342298CD4FF7F60D5077E8441C3993CD2DD755</key>
