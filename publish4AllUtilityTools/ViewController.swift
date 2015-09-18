@@ -19,7 +19,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidLoad()
-        var try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
+        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
         let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
         let request = NSURLRequest(URL: fragUrl)
         self.webViewer.mainFrame.loadRequest(request)
@@ -52,7 +52,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-      var cellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
+      let cellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
         cellView.textField!.stringValue = self.objects.objectAtIndex(row) as! String
         
         return cellView
@@ -63,9 +63,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         {
             let selectedItem = self.objects.objectAtIndex(self.tableView.selectedRow) as! String
             
-            println(selectedItem)
+            print(selectedItem)
             
-//            self.tableView.deselectRow(self.tableView.selectedRow)
+//            self.tableView.deselectRow(self.tableView.selectedRow)  
         }
     }
 }

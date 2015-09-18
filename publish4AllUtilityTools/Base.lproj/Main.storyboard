@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="8191"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -678,6 +678,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="931" id="kJg-4Y-3Cm"/>
                                 </constraints>
+                                <animations/>
                                 <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                                     <nil key="identifier"/>
                                 </webPreferences>
@@ -685,12 +686,13 @@
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="47" horizontalPageScroll="10" verticalLineScroll="47" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zv1-05-mTY">
                                 <rect key="frame" x="20" y="34" width="286" height="467"/>
                                 <clipView key="contentView" id="jj1-1y-akB">
-                                    <rect key="frame" x="1" y="17" width="238" height="117"/>
+                                    <rect key="frame" x="1" y="0.0" width="284" height="466"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="raI-tg-FIb" viewBased="YES" id="t6C-p1-VSq">
-                                            <rect key="frame" x="0.0" y="0.0" width="244" height="0.0"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="284" height="443"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
                                             <size key="intercellSpacing" width="3" height="30"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -714,6 +716,7 @@
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qD9-TC-QWl">
                                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
+                                                                    <animations/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="9EC-dr-SCx">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -721,6 +724,7 @@
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
+                                                            <animations/>
                                                             <connections>
                                                                 <outlet property="textField" destination="qD9-TC-QWl" id="SNT-Rb-twz"/>
                                                             </connections>
@@ -734,23 +738,29 @@
                                             </connections>
                                         </tableView>
                                     </subviews>
+                                    <animations/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
+                                <animations/>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Vdz-pX-m5h">
                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="vUh-ws-M8N">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="raI-tg-FIb">
-                                    <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="284" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
                                 </tableHeaderView>
                             </scrollView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8d6-vG-KXj">
                                 <rect key="frame" x="232" y="4" width="24" height="23"/>
+                                <animations/>
                                 <buttonCell key="cell" type="smallSquare" title="+" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Dx-i8-QGf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -758,6 +768,7 @@
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5H7-Th-w9D">
                                 <rect key="frame" x="264" y="4" width="24" height="23"/>
+                                <animations/>
                                 <buttonCell key="cell" type="smallSquare" title="-" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jr3-BK-4HH">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -773,6 +784,7 @@
                             <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="Zv1-05-mTY" secondAttribute="trailing" constant="8" symbolic="YES" id="IGV-Ed-jfc"/>
                             <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" id="XRG-D1-Tcz"/>
                         </constraints>
+                        <animations/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="t6C-p1-VSq" id="Hfq-sN-Ulg"/>

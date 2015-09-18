@@ -10,4 +10,6 @@ import Foundation
 
 struct PrinterData {
     
+    let somevalue:String?
+    
 }
