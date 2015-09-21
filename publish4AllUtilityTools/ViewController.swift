@@ -25,7 +25,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.webViewer.mainFrame.loadRequest(request)
         
         // table
-        
+        for index in 1...5 {
+            print("\(index) times 5 is \(index * 5)")
+            self.objects.addObject("something")
+        }
+        self.objects.addObject("something")
         self.objects.addObject("something")
         self.objects.addObject("something")
         self.objects.addObject("something")
