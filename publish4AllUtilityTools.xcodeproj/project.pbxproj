@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC586BDE1BB0A9EF008287ED /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDB1BB0A9EF008287ED /* Realm.framework */; settings = {ASSET_TAGS = (); }; };
+		BC586BE01BB0A9EF008287ED /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */; settings = {ASSET_TAGS = (); }; };
+		BC586BE11BB0AA11008287ED /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDB1BB0A9EF008287ED /* Realm.framework */; };
+		BC586BE71BB0AA3A008287ED /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDB1BB0A9EF008287ED /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BC586BE91BB0AA3C008287ED /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */; };
+		BC586BEA1BB0AA3C008287ED /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC90FA871B9A279B00BE7824 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA861B9A279B00BE7824 /* AppDelegate.swift */; };
 		BC90FA891B9A279B00BE7824 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA881B9A279B00BE7824 /* ViewController.swift */; };
 		BC90FA8B1B9A279B00BE7824 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC90FA8A1B9A279B00BE7824 /* Images.xcassets */; };
@@ -27,7 +33,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BC586BE81BB0AA3A008287ED /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BC586BEA1BB0AA3C008287ED /* RealmSwift.framework in Embed Frameworks */,
+				BC586BE71BB0AA3A008287ED /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		BC586BDB1BB0A9EF008287ED /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		BC5AFAAC1B9F784500055872 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		BC5AFAB01BA0DBAE00055872 /* Syntax.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = Syntax.rb; sourceTree = "<group>"; };
 		BC90FA811B9A279B00BE7824 /* publish4AllUtilityTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = publish4AllUtilityTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC586BE11BB0AA11008287ED /* Realm.framework in Frameworks */,
+				BC586BE91BB0AA3C008287ED /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC586BE01BB0A9EF008287ED /* RealmSwift.framework in Frameworks */,
+				BC586BDE1BB0A9EF008287ED /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +95,8 @@
 				BC90FA831B9A279B00BE7824 /* publish4AllUtilityTools */,
 				BC90FA961B9A279B00BE7824 /* publish4AllUtilityToolsTests */,
 				BC90FA821B9A279B00BE7824 /* Products */,
+				BC586BDB1BB0A9EF008287ED /* Realm.framework */,
+				BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */,
 				BC5AFAB01BA0DBAE00055872 /* Syntax.rb */,
 			);
 			sourceTree = "<group>";
@@ -140,6 +169,7 @@
 				BC90FA7D1B9A279B00BE7824 /* Sources */,
 				BC90FA7E1B9A279B00BE7824 /* Frameworks */,
 				BC90FA7F1B9A279B00BE7824 /* Resources */,
+				BC586BE81BB0AA3A008287ED /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -355,6 +385,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = publish4AllUtilityTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Weicheng.FunFacts.$(PRODUCT_NAME:rfc1034identifier)";
@@ -367,6 +401,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = publish4AllUtilityTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Weicheng.FunFacts.$(PRODUCT_NAME:rfc1034identifier)";
@@ -382,6 +420,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -403,6 +442,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = publish4AllUtilityToolsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
