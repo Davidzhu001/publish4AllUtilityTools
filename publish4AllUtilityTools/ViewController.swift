@@ -16,28 +16,33 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     var objects:NSMutableArray! = NSMutableArray()
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        super.viewDidLoad()
+    func webResponce() {
         let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
         let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
         let request = NSURLRequest(URL: fragUrl)
         self.webViewer.mainFrame.loadRequest(request)
+    };
+    
+    func webResponce2() {
+        let url = NSURL(string: "http://192.168.2.102/")
+        let request = NSURLRequest(URL: url!);
+        self.webViewer.mainFrame.loadRequest(request);
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        webResponce()
         
         // table
         for index in 1...5 {
             print("\(index) times 5 is \(index * 5)")
-            self.objects.addObject("something")
+            self.objects.addObject("\(index)")
         }
-        self.objects.addObject("something")
-        self.objects.addObject("something")
-        self.objects.addObject("something")
-        self.objects.addObject("something")
-        
+        self.objects.addObject("192.168.2.102")
         self.tableView.reloadData()
     }
-    
-    
     
 
     override var representedObject: AnyObject? {
@@ -68,7 +73,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             let selectedItem = self.objects.objectAtIndex(self.tableView.selectedRow) as! String
             
             print(selectedItem)
-            
+            webResponce2()
 //            self.tableView.deselectRow(self.tableView.selectedRow)  
         }
     }

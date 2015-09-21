@@ -675,22 +675,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mg3-RS-D1I">
-                                <rect key="frame" x="20" y="34" width="286" height="690"/>
+                                <rect key="frame" x="20" y="20" width="286" height="704"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OpP-gi-Iqj">
-                                        <rect key="frame" x="0.0" y="0.0" width="286" height="690"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="286" height="704"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFx-zx-5KA">
-                                                <rect key="frame" x="0.0" y="0.0" width="286" height="690"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="704"/>
                                                 <subviews>
                                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="47" horizontalPageScroll="10" verticalLineScroll="47" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zv1-05-mTY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="690"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="704"/>
                                                         <clipView key="contentView" id="jj1-1y-akB">
-                                                            <rect key="frame" x="1" y="0.0" width="284" height="689"/>
+                                                            <rect key="frame" x="1" y="0.0" width="284" height="703"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="raI-tg-FIb" viewBased="YES" id="t6C-p1-VSq">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="666"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="680"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <animations/>
                                                                     <size key="intercellSpacing" width="3" height="30"/>
@@ -711,13 +711,13 @@
                                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                             <prototypeCellViews>
                                                                                 <tableCellView identifier="cell" id="1PH-jh-yEa">
-                                                                                    <rect key="frame" x="1" y="25" width="241" height="17"/>
+                                                                                    <rect key="frame" x="1" y="15" width="281" height="17"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
                                                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="qD9-TC-QWl">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
                                                                                             <constraints>
-                                                                                                <constraint firstAttribute="width" constant="96" id="ivo-OX-Mr6"/>
+                                                                                                <constraint firstAttribute="width" constant="96" id="I25-ST-gcu"/>
                                                                                             </constraints>
                                                                                             <animations/>
                                                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="9EC-dr-SCx">
@@ -728,8 +728,8 @@
                                                                                         </textField>
                                                                                     </subviews>
                                                                                     <constraints>
-                                                                                        <constraint firstItem="qD9-TC-QWl" firstAttribute="leading" secondItem="1PH-jh-yEa" secondAttribute="leading" constant="2" id="R8d-o2-CCJ"/>
-                                                                                        <constraint firstItem="qD9-TC-QWl" firstAttribute="centerY" secondItem="1PH-jh-yEa" secondAttribute="centerY" id="uYx-g7-yoQ"/>
+                                                                                        <constraint firstItem="qD9-TC-QWl" firstAttribute="leading" secondItem="1PH-jh-yEa" secondAttribute="leading" constant="2" id="Te5-bX-219"/>
+                                                                                        <constraint firstItem="qD9-TC-QWl" firstAttribute="centerY" secondItem="1PH-jh-yEa" secondAttribute="centerY" id="jYz-6e-cWh"/>
                                                                                     </constraints>
                                                                                     <animations/>
                                                                                     <connections>
@@ -767,6 +767,12 @@
                                                     </scrollView>
                                                 </subviews>
                                                 <animations/>
+                                                <constraints>
+                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="top" secondItem="gFx-zx-5KA" secondAttribute="top" id="IQA-fb-Bbu"/>
+                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="top" secondItem="gFx-zx-5KA" secondAttribute="top" id="WE5-Y7-BAt"/>
+                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="centerY" secondItem="gFx-zx-5KA" secondAttribute="centerY" id="owS-SP-bub"/>
+                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="top" secondItem="gFx-zx-5KA" secondAttribute="top" id="rOW-i8-ex7"/>
+                                                </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                 </visibilityPriorities>
@@ -792,51 +798,25 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8d6-vG-KXj">
-                                <rect key="frame" x="234" y="4" width="24" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="aA4-9c-h0W"/>
-                                </constraints>
-                                <animations/>
-                                <buttonCell key="cell" type="smallSquare" title="+" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Dx-i8-QGf">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <webView translatesAutoresizingMaskIntoConstraints="NO" id="CcD-st-4nI">
                                 <rect key="frame" x="328" y="34" width="911" height="690"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="911" id="vOU-vk-MnF"/>
+                                    <constraint firstAttribute="width" constant="911" id="8OR-rH-X87"/>
                                 </constraints>
                                 <animations/>
                                 <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
                                     <nil key="identifier"/>
                                 </webPreferences>
                             </webView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5H7-Th-w9D">
-                                <rect key="frame" x="266" y="4" width="24" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="SKI-0H-mb6"/>
-                                </constraints>
-                                <animations/>
-                                <buttonCell key="cell" type="smallSquare" title="-" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jr3-BK-4HH">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="mg3-RS-D1I" secondAttribute="trailing" constant="22" id="02j-fB-hdV"/>
-                            <constraint firstItem="8d6-vG-KXj" firstAttribute="baseline" secondItem="5H7-Th-w9D" secondAttribute="baseline" id="3xY-dB-Ef4"/>
-                            <constraint firstItem="mg3-RS-D1I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="6Ce-v9-qVQ"/>
-                            <constraint firstAttribute="bottom" secondItem="8d6-vG-KXj" secondAttribute="bottom" constant="5" id="8ow-Jn-p9j"/>
-                            <constraint firstItem="CcD-st-4nI" firstAttribute="top" secondItem="mg3-RS-D1I" secondAttribute="top" id="CGW-cP-JDo"/>
-                            <constraint firstItem="8d6-vG-KXj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="234" id="Dxs-FV-FnM"/>
-                            <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" constant="6" id="Qv6-h0-WEy"/>
-                            <constraint firstItem="CcD-st-4nI" firstAttribute="bottom" secondItem="mg3-RS-D1I" secondAttribute="bottom" id="TBQ-Gm-WyD"/>
-                            <constraint firstItem="8d6-vG-KXj" firstAttribute="top" secondItem="mg3-RS-D1I" secondAttribute="bottom" constant="8" symbolic="YES" id="h7Q-0h-omH"/>
-                            <constraint firstItem="5H7-Th-w9D" firstAttribute="leading" secondItem="8d6-vG-KXj" secondAttribute="trailing" constant="8" symbolic="YES" id="vhp-gj-zyo"/>
-                            <constraint firstItem="mg3-RS-D1I" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="wuA-S7-C9e"/>
+                            <constraint firstAttribute="bottom" secondItem="mg3-RS-D1I" secondAttribute="bottom" constant="20" symbolic="YES" id="GX3-49-xSz"/>
+                            <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="mg3-RS-D1I" secondAttribute="trailing" constant="22" id="KJh-us-IPT"/>
+                            <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" constant="6" id="SHp-qj-h4Z"/>
+                            <constraint firstAttribute="bottom" secondItem="CcD-st-4nI" secondAttribute="bottom" constant="34" id="ZWC-o9-qfI"/>
+                            <constraint firstItem="mg3-RS-D1I" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="bcc-qm-vBn"/>
+                            <constraint firstItem="mg3-RS-D1I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="hbv-Gk-AYR"/>
+                            <constraint firstItem="CcD-st-4nI" firstAttribute="top" secondItem="mg3-RS-D1I" secondAttribute="top" id="yjn-ym-hEN"/>
                         </constraints>
                         <animations/>
                     </view>
