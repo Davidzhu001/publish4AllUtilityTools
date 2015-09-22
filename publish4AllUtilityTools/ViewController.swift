@@ -8,8 +8,12 @@
 
 import Cocoa
 import WebKit
+import Realm
+import Foundation
+import RealmSwift
 
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+    
 
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
@@ -27,8 +31,18 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let url = NSURL(string: "http://192.168.2.102/")
         let request = NSURLRequest(URL: url!);
         self.webViewer.mainFrame.loadRequest(request);
+        
+        
+        // (1) Create a Dog object and then set its properties
+        let myDog = PrinterInfoData()
+        myDog.name = "Rex"
+        myDog.ip = "10"
+        print("\(myDog)")
+        
+
 
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,5 +91,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 //            self.tableView.deselectRow(self.tableView.selectedRow)  
         }
     }
+    
+    
+    
+    // realm data
+    
+    
 }
 
