@@ -19,6 +19,16 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     @IBOutlet weak var tableView: NSTableView!
     var objects:NSMutableArray! = NSMutableArray()
     let realm = try! Realm()
+    @IBAction func reducingPrinter(sender: AnyObject) {
+        self.objects.removeLastObject()
+        self.tableView.reloadData()
+
+        
+    }
+    @IBAction func addingButton(sender: AnyObject) {
+        self.objects.addObject("192.168.2.102")
+        self.tableView.reloadData()
+    }
     
     
     func webResponce() {
