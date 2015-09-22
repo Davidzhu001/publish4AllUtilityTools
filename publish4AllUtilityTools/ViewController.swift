@@ -37,10 +37,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let myDog = PrinterInfoData()
         myDog.name = "Rex"
         myDog.ip = "10"
-        print("\(myDog)")
-        
-
-
+        let realm = try! Realm()
+        realm.write {
+            realm.add(myDog)
+        }
     }
 
     
@@ -51,7 +51,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         // table
         for index in 1...5 {
-            print("\(index) times 5 is \(index * 5)")
+            print("\(index) times 5 is \(index * 5)", terminator: "")
             self.objects.addObject("\(index)")
         }
         self.objects.addObject("192.168.2.102")
@@ -86,7 +86,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         {
             let selectedItem = self.objects.objectAtIndex(self.tableView.selectedRow) as! String
             
-            print(selectedItem)
+            print(selectedItem, terminator: "")
             webResponce2()
 //            self.tableView.deselectRow(self.tableView.selectedRow)  
         }

@@ -27,6 +27,5 @@ struct Number
 var n = Number(digits: 12345)
 n.digits = 67
 
-print("\(n.digits)")
-print("\(n.numbers)")
-n.numbers
+print("\(n.digits)", terminator: "")
+print("\(n.numbe

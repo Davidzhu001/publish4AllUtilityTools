@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
 //        let sourcePath = String(stringInterpolationSegment: NSBundle.mainBundle().pathForResource("some", ofType:"rb")!)
 //
-//        println(sourcePath)
+//        print(sourcePath)
 //        system(" " + sourcePath)
     }
 
