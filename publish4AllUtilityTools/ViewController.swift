@@ -17,16 +17,13 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
-    var objects:NSMutableArray! = NSMutableArray()
     let realm = try! Realm()
     @IBAction func reducingPrinter(sender: AnyObject) {
-        self.objects.removeLastObject()
         self.tableView.reloadData()
 
         
     }
     @IBAction func addingButton(sender: AnyObject) {
-        self.objects.addObject("192.168.2.102")
         self.tableView.reloadData()
     }
     
@@ -53,19 +50,13 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         webResponce()
         
-        // table
-        for index in 1...5 {
-            print("\(index) times 5 is \(index * 5)", terminator: "")
-            self.objects.addObject("\(index)")
-        }
-        self.objects.addObject("192.168.2.102")
         self.tableView.reloadData()
-        let myDog = PrinterInfoData()
-        myDog.name = "Rex"
-        myDog.ip = "10"
-        realm.write {
-            self.realm.add(myDog)
-        }
+//        let myDog = PrinterInfoData()
+//        myDog.name = "Rex"
+//        myDog.ip = "10"
+//        realm.write {
+//            self.realm.add(myDog)
+//        }
     }
     
 
@@ -81,7 +72,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int
     {
-        return self.objects.count
+        let companies = realm.objects(PrinterInfoData)
+        return companies.count
     }
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
