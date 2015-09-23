@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC0CB2381BB308C70011CE89 /* AddingPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0CB2371BB308C70011CE89 /* AddingPrinter.swift */; settings = {ASSET_TAGS = (); }; };
 		BC586BDE1BB0A9EF008287ED /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDB1BB0A9EF008287ED /* Realm.framework */; settings = {ASSET_TAGS = (); }; };
 		BC586BE01BB0A9EF008287ED /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */; settings = {ASSET_TAGS = (); }; };
 		BC586BE11BB0AA11008287ED /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDB1BB0A9EF008287ED /* Realm.framework */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BC0CB2371BB308C70011CE89 /* AddingPrinter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingPrinter.swift; sourceTree = "<group>"; };
 		BC586BDB1BB0A9EF008287ED /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterInfoModel.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				BC90FAA31B9A281F00BE7824 /* webs */,
 				BC90FA861B9A279B00BE7824 /* AppDelegate.swift */,
 				BC90FA881B9A279B00BE7824 /* ViewController.swift */,
+				BC0CB2371BB308C70011CE89 /* AddingPrinter.swift */,
 				BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */,
 				BC90FA8A1B9A279B00BE7824 /* Images.xcassets */,
 				BC90FA8C1B9A279B00BE7824 /* Main.storyboard */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC90FA891B9A279B00BE7824 /* ViewController.swift in Sources */,
+				BC0CB2381BB308C70011CE89 /* AddingPrinter.swift in Sources */,
 				BC90FA871B9A279B00BE7824 /* AppDelegate.swift in Sources */,
 				BC586BEC1BB0AAD9008287ED /* PrinterInfoModel.swift in Sources */,
 			);

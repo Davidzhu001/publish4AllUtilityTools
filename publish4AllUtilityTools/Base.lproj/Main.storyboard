@@ -826,6 +826,7 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="addingButton:" target="XfG-lQ-9wD" id="DaM-n0-fIw"/>
+                                    <segue destination="9kh-lE-8Wv" kind="show" id="B3W-hc-dee"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PlH-Zr-cGF">
@@ -867,6 +868,20 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="265.5" y="853.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="loz-Zh-NZ8">
+            <objects>
+                <viewController id="9kh-lE-8Wv" sceneMemberID="viewController">
+                    <view key="view" id="mH9-HU-GUk">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </view>
+                </viewController>
+                <customObject id="JJ1-3g-UBN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112" y="1430"/>
         </scene>
     </scenes>
     <resources>
