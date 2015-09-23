@@ -86,7 +86,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let companies = realm.objects(PrinterInfoData)
-      let cellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
+        let cellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
         cellView.textField!.stringValue = companies[tableView.integerValue].name 
         
         return cellView
@@ -95,11 +95,13 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     func tableViewSelectionDidChange(notification: NSNotification) {
         if (self.tableView.numberOfSelectedRows > 0)
         {
-            let selectedItem = self.objects.objectAtIndex(self.tableView.selectedRow) as! String
+            let companies = realm.objects(PrinterInfoData)
+            let selectedItemIp = companies[self.tableView.selectedRow].ip
             
-            print(selectedItem, terminator: "")
+            print(selectedItemIp, terminator: "")
             webResponce2()
-//            self.tableView.deselectRow(self.tableView.selectedRow)  
+            
+//            self.tableView.deselectRow(self.tableView.selectedRow)
         }
     }
     
