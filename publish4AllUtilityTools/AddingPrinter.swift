@@ -10,9 +10,8 @@ import Cocoa
 
 class AddingPrinter: NSViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-    
+    @IBOutlet weak var printerIp: NSTextField!
+    @IBOutlet weak var printerName: NSTextField!
+    @IBAction func addingPrinter(sender: AnyObject) {
+        }
 }

@@ -869,10 +869,10 @@
             </objects>
             <point key="canvasLocation" x="265.5" y="853.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Adding Printer-->
         <scene sceneID="loz-Zh-NZ8">
             <objects>
-                <viewController id="9kh-lE-8Wv" sceneMemberID="viewController">
+                <viewController id="9kh-lE-8Wv" customClass="AddingPrinter" customModule="publish4AllUtilityTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="mH9-HU-GUk">
                         <rect key="frame" x="0.0" y="0.0" width="396" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -920,10 +920,17 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="addingPrinter:" target="9kh-lE-8Wv" id="jfz-ce-hY8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                     </view>
+                    <connections>
+                        <outlet property="printerIp" destination="bQw-Se-kJs" id="SrJ-Im-Ov2"/>
+                        <outlet property="printerName" destination="NnJ-ga-8kO" id="gDr-JR-XJ1"/>
+                    </connections>
                 </viewController>
                 <customObject id="JJ1-3g-UBN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
