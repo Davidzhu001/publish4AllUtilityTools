@@ -51,12 +51,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         webResponce()
         
         self.tableView.reloadData()
-//        let myDog = PrinterInfoData()
-//        myDog.name = "Rex"
-//        myDog.ip = "10"
-//        realm.write {
-//            self.realm.add(myDog)
-//        }
     }
     
 
@@ -96,11 +90,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 //            self.tableView.deselectRow(self.tableView.selectedRow)
         }
     }
-    
-    
-    
-    // realm data
-    
     
 }
 
