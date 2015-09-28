@@ -14,6 +14,7 @@ import RealmSwift
 
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
+    var ipAdress = "192.168.2.102"
 
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
@@ -36,7 +37,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     };
     
     func webResponce2() {
-        let url = NSURL(string: "http://192.168.2.102/")
+        let ipRequestAddress = "http://\(ipAdress)/"
+        let url = NSURL(string: ipRequestAddress)
         let request = NSURLRequest(URL: url!);
         self.webViewer.mainFrame.loadRequest(request);
         
