@@ -43,16 +43,17 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.webViewer.mainFrame.loadRequest(request);
         var response: NSURLResponse?
         
-        _ = try! (NSURLConnection.sendSynchronousRequest(request, returningResponse: &response) as NSData?)
+        do {
+        try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+        } catch (let e) {
+            print(e)
+            webResponce()
+        }
         
         if let httpResponse = response as? NSHTTPURLResponse {
             if httpResponse.statusCode == 200 {
-                print("asdas")
                 self.webViewer.mainFrame.loadRequest(request);
                 
-            }
-            else {
-                webResponce()
             }
         }
 
