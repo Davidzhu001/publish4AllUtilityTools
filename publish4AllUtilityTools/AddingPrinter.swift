@@ -16,12 +16,12 @@ class AddingPrinter: NSViewController {
     @IBOutlet weak var printerIp: NSTextField!
     @IBOutlet weak var printerName: NSTextField!
     @IBAction func addingPrinter(sender: AnyObject) {
-        let myDog = PrinterInfoData()
-        myDog.name = "some"
-        myDog.ip = "10"
+        let addingPrinterForm = PrinterInfoData()
+        addingPrinterForm.name = printerName.stringValue
+        addingPrinterForm.ip = printerIp.stringValue
         let realm = try! Realm()
         realm.write {
-            realm.add(myDog)
+            realm.add(addingPrinterForm)
             print("ss")
         }
         self.view.window?.close()
