@@ -41,9 +41,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let url = NSURL(string: ipRequestAddress)
         let request = NSURLRequest(URL: url!);
         self.webViewer.mainFrame.loadRequest(request);
-        
-        
-        // (1) Create a Dog object and then set its properties
+
     }
 
     
@@ -58,7 +56,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 
     override var representedObject: AnyObject? {
         didSet {
-        // Update the view, if already loaded.
         }
     }
     
@@ -85,13 +82,14 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         {
             let companies = realm.objects(PrinterInfoData)
             let selectedItemIp = companies[self.tableView.selectedRow].ip
-            
-            print(selectedItemIp, terminator: "")
+            ipAdress = selectedItemIp
+            print(ipAdress)
             webResponce2()
             
 //            self.tableView.deselectRow(self.tableView.selectedRow)
         }
     }
+
     
 }
 
