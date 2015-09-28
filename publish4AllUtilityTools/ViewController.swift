@@ -73,7 +73,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let companies = realm.objects(PrinterInfoData)
         let cellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
-        cellView.textField!.stringValue = companies[tableView.integerValue].name 
+        cellView.textField!.stringValue = companies[row].name
         
         return cellView
      }
