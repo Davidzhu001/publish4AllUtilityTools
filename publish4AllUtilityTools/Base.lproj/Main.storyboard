@@ -672,14 +672,14 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="publish4AllUtilityTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1245" height="717"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1522" height="717"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mg3-RS-D1I">
-                                <rect key="frame" x="20" y="62" width="286" height="635"/>
+                                <rect key="frame" x="20" y="62" width="563" height="635"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OpP-gi-Iqj">
-                                        <rect key="frame" x="0.0" y="0.0" width="286" height="635"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="563" height="635"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFx-zx-5KA">
                                                 <rect key="frame" x="0.0" y="0.0" width="286" height="635"/>
@@ -768,16 +768,6 @@
                                                     </scrollView>
                                                 </subviews>
                                                 <animations/>
-                                                <constraints>
-                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="centerX" secondItem="gFx-zx-5KA" secondAttribute="centerX" id="1hX-PN-8bJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Zv1-05-mTY" secondAttribute="trailing" id="1hq-Mg-8ve"/>
-                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="top" secondItem="gFx-zx-5KA" secondAttribute="top" id="7tf-bO-cYI"/>
-                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="centerY" secondItem="gFx-zx-5KA" secondAttribute="centerY" id="OXT-hR-cl8"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Zv1-05-mTY" secondAttribute="trailing" id="Sb7-8C-XgF"/>
-                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="top" secondItem="gFx-zx-5KA" secondAttribute="top" id="miC-Qs-e0m"/>
-                                                    <constraint firstItem="Zv1-05-mTY" firstAttribute="top" secondItem="gFx-zx-5KA" secondAttribute="top" id="qNA-mU-gLW"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Zv1-05-mTY" secondAttribute="trailing" id="yvD-2H-yFL"/>
-                                                </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                 </visibilityPriorities>
@@ -787,6 +777,9 @@
                                             </stackView>
                                         </subviews>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="gFx-zx-5KA" secondAttribute="trailing" constant="277" id="EaC-Tf-XI9"/>
+                                        </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                         </visibilityPriorities>
@@ -804,9 +797,9 @@
                                 </customSpacing>
                             </stackView>
                             <webView translatesAutoresizingMaskIntoConstraints="NO" id="CcD-st-4nI">
-                                <rect key="frame" x="328" y="7" width="911" height="690"/>
+                                <rect key="frame" x="328" y="7" width="1189" height="690"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="911" id="8OR-rH-X87"/>
+                                    <constraint firstAttribute="width" constant="1189" id="8OR-rH-X87"/>
                                 </constraints>
                                 <animations/>
                                 <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
@@ -846,12 +839,12 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="mg3-RS-D1I" firstAttribute="top" secondItem="CcD-st-4nI" secondAttribute="top" id="07H-sQ-3d7"/>
-                            <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" constant="6" id="1Lz-hV-b9x"/>
+                            <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" constant="5" id="1Lz-hV-b9x"/>
                             <constraint firstItem="CcD-st-4nI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="1ej-Jv-dgP"/>
                             <constraint firstItem="mg3-RS-D1I" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="79s-Ef-8E7"/>
                             <constraint firstItem="xOF-kv-ltd" firstAttribute="top" secondItem="PlH-Zr-cGF" secondAttribute="top" id="7oW-uy-9Rj"/>
                             <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="PlH-Zr-cGF" secondAttribute="trailing" constant="39" id="7po-1d-uTN"/>
-                            <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="mg3-RS-D1I" secondAttribute="trailing" constant="22" id="BQH-sn-AZo"/>
+                            <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="mg3-RS-D1I" secondAttribute="trailing" constant="-255" id="BQH-sn-AZo"/>
                             <constraint firstItem="PlH-Zr-cGF" firstAttribute="leading" secondItem="xOF-kv-ltd" secondAttribute="trailing" constant="19" id="IM8-mE-Zom"/>
                             <constraint firstAttribute="bottom" secondItem="CcD-st-4nI" secondAttribute="bottom" constant="7" id="WdL-sQ-pcv"/>
                             <constraint firstItem="xOF-kv-ltd" firstAttribute="top" secondItem="mg3-RS-D1I" secondAttribute="bottom" constant="18" id="cAn-a8-cPn"/>
@@ -867,7 +860,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265.5" y="853.5"/>
+            <point key="canvasLocation" x="404" y="853.5"/>
         </scene>
         <!--Adding Printer-->
         <scene sceneID="loz-Zh-NZ8">
