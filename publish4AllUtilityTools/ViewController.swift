@@ -38,23 +38,16 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func webResponce2() {
         let ipRequestAddress = "http://\(ipAdress)/"
+        isHostConnected(ipRequestAddress)
         let url = NSURL(string: ipRequestAddress)
         let request = NSURLRequest(URL: url!);
-        self.webViewer.mainFrame.loadRequest(request);
-        var response: NSURLResponse?
         
-        do {
-        try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
-        } catch (let e) {
-            print(e)
-            webResponce()
+        if isHostConnected(ipRequestAddress) {
+            self.webViewer.mainFrame.loadRequest(request);
+            print("good connection")
         }
-        
-        if let httpResponse = response as? NSHTTPURLResponse {
-            if httpResponse.statusCode == 200 {
-                self.webViewer.mainFrame.loadRequest(request);
-                
-            }
+        else {
+            print("no connection")
         }
 
     }
@@ -104,7 +97,28 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 //            self.tableView.deselectRow(self.tableView.selectedRow)
         }
     }
-
+    func isHostConnected(hostAddress : String) -> Bool
+    {
+        let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        request.timeoutInterval = 1
+        request.HTTPMethod = "HEAD"
+        
+        let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        var responseCode = -1
+        
+        let group = dispatch_group_create()
+        dispatch_group_enter(group)
+        
+        session.dataTaskWithRequest(request, completionHandler: {(_, response, _) in
+            if let httpResponse = response as? NSHTTPURLResponse {
+                responseCode = httpResponse.statusCode
+            }
+            dispatch_group_leave(group)
+        }).resume()
+        
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
+        return (responseCode == 200)
+    }
     
 }
 
