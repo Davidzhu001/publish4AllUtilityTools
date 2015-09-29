@@ -21,8 +21,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     let realm = try! Realm()
     @IBAction func reducingPrinter(sender: AnyObject) {
         self.tableView.reloadData()
-
-        
     }
     @IBAction func addingButton(sender: AnyObject) {
         self.tableView.reloadData()
@@ -43,7 +41,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.webViewer.mainFrame.loadRequest(request)
     };
     
-    func webResponce2() {
+    func webResponceOnClick() {
         let ipRequestAddress = "http://\(ipAdress)/"
         isHostConnected(ipRequestAddress)
         let url = NSURL(string: ipRequestAddress)
@@ -66,7 +64,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         webResponce()
         
-        self.tableView.reloadData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
     }
     
 
@@ -100,7 +98,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             let selectedItemIp = companies[self.tableView.selectedRow].ip
             ipAdress = selectedItemIp
             print(ipAdress)
-            webResponce2()
+            webResponceOnClick()
             
 //            self.tableView.deselectRow(self.tableView.selectedRow)
         }
@@ -126,6 +124,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
         return (responseCode == 200)
+    }
+    func loadList(notification: NSNotification){
+        self.tableView.reloadData()
     }
     
 }

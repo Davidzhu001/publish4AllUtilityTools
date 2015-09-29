@@ -162,11 +162,19 @@
 			isa = PBXGroup;
 			children = (
 				BC90FAA61B9A284D00BE7824 /* index.html */,
-				BCDF7D9D1BA221EF007E44E5 /* some.rb */,
 				BCB9C7C91BBAE8D500500CD5 /* 404.html */,
-				BCB9C7CB1BBAE8FE00500CD5 /* 404.css */,
+				BCB9C7CD1BBAF0DA00500CD5 /* css */,
+				BCDF7D9D1BA221EF007E44E5 /* some.rb */,
 			);
 			name = webs;
+			sourceTree = "<group>";
+		};
+		BCB9C7CD1BBAF0DA00500CD5 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				BCB9C7CB1BBAE8FE00500CD5 /* 404.css */,
+			);
+			name = css;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
