@@ -36,6 +36,13 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.webViewer.mainFrame.loadRequest(request)
     };
     
+    func webResponce404() {
+        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("404", ofType:"html")!)
+        let fragUrl = NSURL(string: "404.html", relativeToURL: try6)!
+        let request = NSURLRequest(URL: fragUrl)
+        self.webViewer.mainFrame.loadRequest(request)
+    };
+    
     func webResponce2() {
         let ipRequestAddress = "http://\(ipAdress)/"
         isHostConnected(ipRequestAddress)
@@ -47,6 +54,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             print("good connection")
         }
         else {
+            webResponce404();
             print("no connection")
         }
 
