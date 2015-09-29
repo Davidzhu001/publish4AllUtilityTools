@@ -99,7 +99,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     }
     func isHostConnected(hostAddress : String) -> Bool
     {
-        let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!)
+        let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
         request.timeoutInterval = 1
         request.HTTPMethod = "HEAD"
         
