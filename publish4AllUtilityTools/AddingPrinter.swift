@@ -22,7 +22,6 @@ class AddingPrinter: NSViewController {
         let realm = try! Realm()
         realm.write {
             realm.add(addingPrinterForm)
-            print("ss")
         }
         NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.view.window?.close()

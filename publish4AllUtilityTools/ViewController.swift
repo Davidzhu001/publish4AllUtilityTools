@@ -15,11 +15,17 @@ import RealmSwift
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     var ipAdress = "192.168.2.102"
+    var deletingObjectIp = ""
 
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
     let realm = try! Realm()
     @IBAction func reducingPrinter(sender: AnyObject) {
+        
+        let objectPrinter = realm.objects(PrinterInfoData).filter("ip = '\(deletingObjectIp)'")
+            realm.write {
+                self.realm.delete(objectPrinter)
+            }
         self.tableView.reloadData()
     }
     @IBAction func addingButton(sender: AnyObject) {
@@ -98,6 +104,12 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             let selectedItemIp = companies[self.tableView.selectedRow].ip
             ipAdress = selectedItemIp
             print(ipAdress)
+            self.deletingObjectIp = ipAdress
+            
+//            let deletingObjects = PrinterInfoData()
+//            deletingObjects.ip = companies[self.tableView.selectedRow].ip
+//            deletingObjects.name = companies[self.tableView.selectedRow].name
+//            self.deletingObject = deletingObjects
             webResponceOnClick()
             
 //            self.tableView.deselectRow(self.tableView.selectedRow)
