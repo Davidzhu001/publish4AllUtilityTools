@@ -33,39 +33,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     }
     
     
-    func webResponce() {
-        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
-        let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
-        let request = NSURLRequest(URL: fragUrl)
-        self.webViewer.mainFrame.loadRequest(request)
-    };
-    
-    func webResponce404() {
-        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("404", ofType:"html")!)
-        let fragUrl = NSURL(string: "404.html", relativeToURL: try6)!
-        let request = NSURLRequest(URL: fragUrl)
-        self.webViewer.mainFrame.loadRequest(request)
-    };
-    
-    func webResponceOnClick() {
-        let ipRequestAddress = "http://\(ipAdress)/"
-        isHostConnected(ipRequestAddress)
-        let url = NSURL(string: ipRequestAddress)
-        let request = NSURLRequest(URL: url!);
-        
-        if isHostConnected(ipRequestAddress) {
-            self.webViewer.mainFrame.loadRequest(request);
-            print("good connection")
-            webInformationGrabStep(ipRequestAddress)
-        }
-        else {
-            webResponce404();
-            print("no connection")
-        }
-
-    }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,6 +83,40 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 //            self.tableView.deselectRow(self.tableView.selectedRow)
         }
     }
+    
+    
+    func webResponce() {
+        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
+        let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
+        let request = NSURLRequest(URL: fragUrl)
+        self.webViewer.mainFrame.loadRequest(request)
+    };
+    
+    func webResponce404() {
+        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("404", ofType:"html")!)
+        let fragUrl = NSURL(string: "404.html", relativeToURL: try6)!
+        let request = NSURLRequest(URL: fragUrl)
+        self.webViewer.mainFrame.loadRequest(request)
+    };
+    
+    func webResponceOnClick() {
+        let ipRequestAddress = "http://\(ipAdress)/"
+        isHostConnected(ipRequestAddress)
+        let url = NSURL(string: ipRequestAddress)
+        let request = NSURLRequest(URL: url!);
+        
+        if isHostConnected(ipRequestAddress) {
+            self.webViewer.mainFrame.loadRequest(request);
+            print("good connection")
+            webInformationGrabStep(ipRequestAddress)
+        }
+        else {
+            webResponce404();
+            print("no connection")
+        }
+        
+    }
+
     func isHostConnected(hostAddress : String) -> Bool
     {
         let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
@@ -146,12 +147,17 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func webInformationGrabStep(paramUrl: String) {
         let xmlInformation = paramUrl + "DevMgmt/ProductUsageDyn.xml"
+        if isHostConnected(xmlInformation) {
         let url = NSURL(string: xmlInformation)
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print(webContent)
         })
         task.resume()
+        }
+        else {
+        print("no information")
+        }
     }
     
 }
