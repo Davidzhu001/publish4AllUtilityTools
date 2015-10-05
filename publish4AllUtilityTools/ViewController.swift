@@ -56,6 +56,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         if isHostConnected(ipRequestAddress) {
             self.webViewer.mainFrame.loadRequest(request);
             print("good connection")
+            webInformationGrabStep(ipRequestAddress)
         }
         else {
             webResponce404();
@@ -137,8 +138,20 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
         return (responseCode == 200)
     }
+    
     func loadList(notification: NSNotification){
         self.tableView.reloadData()
+    }
+    
+    
+    func webInformationGrabStep(paramUrl: String) {
+        let xmlInformation = paramUrl + "DevMgmt/ProductUsageDyn.xml"
+        let url = NSURL(string: xmlInformation)
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+            let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(webContent)
+        })
+        task.resume()
     }
     
 }
