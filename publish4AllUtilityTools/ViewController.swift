@@ -152,6 +152,26 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
             print(webContent)
+            let websiteArray = webContent!.componentsSeparatedByString("<dd:TotalImpressions PEID=\"5082\">")
+            if websiteArray.count > 1 {
+                
+                print(websiteArray.count)
+                
+                let weatherArray = websiteArray[1].componentsSeparatedByString("</dd:TotalImpressions>")
+                
+                if weatherArray.count > 1 {
+                    
+                    
+                    let weatherSummary = weatherArray[0]
+                    
+                    print(weatherSummary)
+                    
+                    
+                    
+                }
+            }
+            
+
         })
         task.resume()
         }
@@ -159,6 +179,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         print("no information")
         }
     }
+    
+    
     
 }
 
