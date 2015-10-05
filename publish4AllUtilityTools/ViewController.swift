@@ -16,10 +16,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     var ipAdress = "192.168.2.102"
     var deletingObjectIp = ""
+    let realm = try! Realm()
 
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
-    let realm = try! Realm()
     @IBAction func reducingPrinter(sender: AnyObject) {
         
         let objectPrinter = realm.objects(PrinterInfoData).filter("ip = '\(deletingObjectIp)'")
@@ -35,9 +35,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         webResponce()
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
     }
     
@@ -73,14 +71,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             ipAdress = selectedItemIp
             print(ipAdress)
             self.deletingObjectIp = ipAdress
-            
-//            let deletingObjects = PrinterInfoData()
-//            deletingObjects.ip = companies[self.tableView.selectedRow].ip
-//            deletingObjects.name = companies[self.tableView.selectedRow].name
-//            self.deletingObject = deletingObjects
             webResponceOnClick()
             
-//            self.tableView.deselectRow(self.tableView.selectedRow)
         }
     }
     
@@ -151,7 +143,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let url = NSURL(string: xmlInformation)
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(webContent)
             let websiteArray = webContent!.componentsSeparatedByString("<dd:TotalImpressions PEID=\"5082\">")
             if websiteArray.count > 1 {
                 
