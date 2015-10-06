@@ -838,23 +838,40 @@
                                     <segue destination="9kh-lE-8Wv" kind="show" id="B3W-hc-dee"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PF6-Pn-6oM">
+                                <rect key="frame" x="20" y="20" width="157" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Vrx-k4-Pja"/>
+                                    <constraint firstAttribute="width" constant="157" id="eXD-6t-Qs1"/>
+                                </constraints>
+                                <animations/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Connection Status" drawsBackground="YES" id="Lrb-Km-7Fe">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="shadowColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="PF6-Pn-6oM" firstAttribute="top" secondItem="Zv1-05-mTY" secondAttribute="bottom" constant="15" id="3E0-Jd-4nB"/>
                             <constraint firstAttribute="trailing" secondItem="CcD-st-4nI" secondAttribute="trailing" constant="5" id="DDF-Ib-QpJ"/>
                             <constraint firstItem="CcD-st-4nI" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="DJw-qt-fWw"/>
+                            <constraint firstItem="PF6-Pn-6oM" firstAttribute="top" secondItem="t6C-p1-VSq" secondAttribute="bottom" constant="16" id="JGm-03-wwf"/>
                             <constraint firstAttribute="bottom" secondItem="xOF-kv-ltd" secondAttribute="bottom" constant="20" id="MV7-Kf-8NF"/>
-                            <constraint firstItem="xOF-kv-ltd" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="204" id="WaK-To-Ur0"/>
-                            <constraint firstAttribute="bottom" secondItem="Zv1-05-mTY" secondAttribute="bottom" constant="59" id="enR-5w-atX"/>
+                            <constraint firstAttribute="bottom" secondItem="PF6-Pn-6oM" secondAttribute="bottom" constant="20" id="cAM-8f-5xI"/>
                             <constraint firstItem="CcD-st-4nI" firstAttribute="leading" secondItem="mg3-RS-D1I" secondAttribute="trailing" constant="26" id="g15-6C-xvn"/>
                             <constraint firstItem="PlH-Zr-cGF" firstAttribute="leading" secondItem="xOF-kv-ltd" secondAttribute="trailing" constant="19" id="jZb-ps-KQl"/>
                             <constraint firstAttribute="bottom" secondItem="CcD-st-4nI" secondAttribute="bottom" constant="7" id="l1O-MX-rdO"/>
                             <constraint firstItem="CcD-st-4nI" firstAttribute="top" secondItem="mg3-RS-D1I" secondAttribute="top" id="nGx-FD-znp"/>
+                            <constraint firstItem="PF6-Pn-6oM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="ntD-z6-Vdz"/>
+                            <constraint firstItem="xOF-kv-ltd" firstAttribute="leading" secondItem="PF6-Pn-6oM" secondAttribute="trailing" constant="27" id="pYv-Jm-hQQ"/>
                             <constraint firstItem="Zv1-05-mTY" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="s0z-0M-eHo"/>
                             <constraint firstAttribute="bottom" secondItem="PlH-Zr-cGF" secondAttribute="bottom" constant="20" id="tE7-Kl-5kg"/>
                         </constraints>
                         <animations/>
                     </view>
                     <connections>
+                        <outlet property="printerStatus" destination="PF6-Pn-6oM" id="InS-a2-bz2"/>
                         <outlet property="tableView" destination="t6C-p1-VSq" id="Hfq-sN-Ulg"/>
                         <outlet property="webViewer" destination="CcD-st-4nI" id="niu-G3-UrM"/>
                     </connections>

@@ -18,6 +18,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     var deletingObjectIp = ""
     let realm = try! Realm()
 
+    @IBOutlet weak var printerStatus: NSTextField!
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
     @IBAction func reducingPrinter(sender: AnyObject) {
@@ -100,6 +101,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         if isHostConnected(ipRequestAddress) {
             self.webViewer.mainFrame.loadRequest(request);
             print("good connection")
+            printerStatus.stringValue = "good connection"
             webInformationGrabStep(ipRequestAddress)
         }
         else {
