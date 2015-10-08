@@ -14,7 +14,10 @@ import RealmSwift
 
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
-    var ipAdress = "192.168.2.102"
+    
+    
+    var printerPageCount = 0
+    var ipAdress = ""
     var deletingObjectIp = ""
     let realm = try! Realm()
 
@@ -143,21 +146,20 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let url = NSURL(string: xmlInformation)
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            let websiteArray = webContent!.componentsSeparatedByString("<dd:TotalImpressions PEID=\"5082\">")
-            if websiteArray.count > 1 {
+            let printerPageArray = webContent!.componentsSeparatedByString("<dd:TotalImpressions PEID=\"5082\">")
+            if printerPageArray.count > 1 {
                 
-                print(websiteArray.count)
+                print(printerPageArray.count)
                 
-                let weatherArray = websiteArray[1].componentsSeparatedByString("</dd:TotalImpressions>")
+                let printerPageArray = printerPageArray[1].componentsSeparatedByString("</dd:TotalImpressions>")
                 
-                if weatherArray.count > 1 {
+                if printerPageArray.count > 1 {
                     
                     
-                    let weatherSummary = weatherArray[0]
+                    let printerLocalPageCount = printerPageArray[0]
                     
-                    print(weatherSummary)
-                    
-                    
+                    self.printerPageCount = Int(printerLocalPageCount)!
+                    print(printerLocalPageCount)
                     
                 }
             }
