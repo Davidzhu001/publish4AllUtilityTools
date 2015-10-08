@@ -60,11 +60,17 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let companies = realm.objects(PrinterInfoData)
-        let cellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
-        cellView.textField!.stringValue = companies[row].name
         
-        return cellView
-     }
+        
+        let cellView: NSTableCellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
+        cellView.textField!.stringValue = companies[row].name
+        if isHostConnected(companies[row].ip) {
+            return cellView
+        } else
+        {
+            return cellView
+        }
+    }
     
     func tableViewSelectionDidChange(notification: NSNotification) {
         if (self.tableView.numberOfSelectedRows > 0)
