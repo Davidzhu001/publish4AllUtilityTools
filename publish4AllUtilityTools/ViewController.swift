@@ -64,10 +64,15 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         let cellView: NSTableCellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
         cellView.textField!.stringValue = companies[row].name
-        if isHostConnected(companies[row].ip) {
+        if isHostConnected("http://\(companies[row].ip)") == false {
+            cellView.imageView!.image  = NSImage(named: "cross")
             return cellView
-        } else
-        {
+        } else if isHostConnected("http://\(companies[row].ip)/DevMgmt/ProductUsageDyn.xml") == true {
+            cellView.imageView!.image  = NSImage(named: "printer")
+            return cellView
+            }
+        else    {
+            cellView.imageView!.image  = NSImage(named: "web_connected")
             return cellView
         }
     }

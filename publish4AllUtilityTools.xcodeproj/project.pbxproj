@@ -16,6 +16,9 @@
 		BC586BEA1BB0AA3C008287ED /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC586BEC1BB0AAD9008287ED /* PrinterInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */; settings = {ASSET_TAGS = (); }; };
 		BC586BED1BB0AAD9008287ED /* PrinterInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */; settings = {ASSET_TAGS = (); }; };
+		BC6679D91BC6FC71002F47AA /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6679D81BC6FC71002F47AA /* cross.png */; settings = {ASSET_TAGS = (); }; };
+		BC6679DD1BC7018D002F47AA /* printer.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6679DC1BC7018D002F47AA /* printer.png */; settings = {ASSET_TAGS = (); }; };
+		BC6679DF1BC701C5002F47AA /* web_connected.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6679DE1BC701C5002F47AA /* web_connected.png */; settings = {ASSET_TAGS = (); }; };
 		BC90FA871B9A279B00BE7824 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA861B9A279B00BE7824 /* AppDelegate.swift */; };
 		BC90FA891B9A279B00BE7824 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA881B9A279B00BE7824 /* ViewController.swift */; };
 		BC90FA8B1B9A279B00BE7824 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC90FA8A1B9A279B00BE7824 /* Images.xcassets */; };
@@ -59,6 +62,9 @@
 		BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterInfoModel.swift; sourceTree = "<group>"; };
 		BC5AFAAC1B9F784500055872 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		BC5AFAB01BA0DBAE00055872 /* Syntax.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = Syntax.rb; sourceTree = "<group>"; };
+		BC6679D81BC6FC71002F47AA /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
+		BC6679DC1BC7018D002F47AA /* printer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = printer.png; sourceTree = "<group>"; };
+		BC6679DE1BC701C5002F47AA /* web_connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web_connected.png; sourceTree = "<group>"; };
 		BC90FA811B9A279B00BE7824 /* publish4AllUtilityTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = publish4AllUtilityTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC90FA851B9A279B00BE7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC90FA861B9A279B00BE7824 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +142,9 @@
 		BC90FA841B9A279B00BE7824 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BC6679D81BC6FC71002F47AA /* cross.png */,
+				BC6679DE1BC701C5002F47AA /* web_connected.png */,
+				BC6679DC1BC7018D002F47AA /* printer.png */,
 				BC90FA851B9A279B00BE7824 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -260,11 +269,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6679D91BC6FC71002F47AA /* cross.png in Resources */,
 				BCB9C7CC1BBAE8FE00500CD5 /* 404.css in Resources */,
+				BC6679DD1BC7018D002F47AA /* printer.png in Resources */,
 				BC90FAA71B9A284D00BE7824 /* index.html in Resources */,
 				BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */,
 				BC90FA8B1B9A279B00BE7824 /* Images.xcassets in Resources */,
 				BCB9C7CA1BBAE8D500500CD5 /* 404.html in Resources */,
+				BC6679DF1BC701C5002F47AA /* web_connected.png in Resources */,
 				BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
