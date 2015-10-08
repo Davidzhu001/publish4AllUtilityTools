@@ -49,8 +49,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         print("4")
     }
     
-    override func viewWillAppear() {
-    }
     override var representedObject: AnyObject? {
         didSet {
         }
@@ -58,7 +56,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     override func viewDidAppear() {
         unconnectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
-        connectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
+        connectedPrinterNumberLabel.stringValue = "\(totalConnectedPrinters)"
         print("test 3")
     }
     
@@ -138,7 +136,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     func isHostConnected(hostAddress : String) -> Bool
     {
         let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-        request.timeoutInterval = 1
+        request.timeoutInterval = 0.5
         request.HTTPMethod = "HEAD"
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
