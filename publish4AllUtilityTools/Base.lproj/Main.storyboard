@@ -712,30 +712,29 @@
                                                                             </textFieldCell>
                                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                             <prototypeCellViews>
-                                                                                <tableCellView identifier="cell" id="1PH-jh-yEa">
+                                                                                <tableCellView identifier="cell" id="uvQ-0l-yzx">
                                                                                     <rect key="frame" x="1" y="15" width="281" height="17"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                     <subviews>
-                                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="qD9-TC-QWl">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="17"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="width" constant="96" id="I25-ST-gcu"/>
-                                                                                            </constraints>
+                                                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dyj-jD-FTi">
+                                                                                            <rect key="frame" x="3" y="0.0" width="17" height="17"/>
                                                                                             <animations/>
-                                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="9EC-dr-SCx">
+                                                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="aqm-Ps-Mkg"/>
+                                                                                        </imageView>
+                                                                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uf8-Iu-Xqn">
+                                                                                            <rect key="frame" x="25" y="0.0" width="105" height="17"/>
+                                                                                            <animations/>
+                                                                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="WYz-b7-Xuw">
                                                                                                 <font key="font" metaFont="system"/>
                                                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                             </textFieldCell>
                                                                                         </textField>
                                                                                     </subviews>
-                                                                                    <constraints>
-                                                                                        <constraint firstItem="qD9-TC-QWl" firstAttribute="leading" secondItem="1PH-jh-yEa" secondAttribute="leading" constant="2" id="Te5-bX-219"/>
-                                                                                        <constraint firstItem="qD9-TC-QWl" firstAttribute="centerY" secondItem="1PH-jh-yEa" secondAttribute="centerY" id="jYz-6e-cWh"/>
-                                                                                    </constraints>
                                                                                     <animations/>
                                                                                     <connections>
-                                                                                        <outlet property="textField" destination="qD9-TC-QWl" id="SNT-Rb-twz"/>
+                                                                                        <outlet property="imageView" destination="Dyj-jD-FTi" id="qra-Rr-M34"/>
+                                                                                        <outlet property="textField" destination="Uf8-Iu-Xqn" id="cMd-Fm-JVu"/>
                                                                                     </connections>
                                                                                 </tableCellView>
                                                                             </prototypeCellViews>
@@ -957,6 +956,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
     </resources>
 </document>
