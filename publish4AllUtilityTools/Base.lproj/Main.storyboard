@@ -934,7 +934,9 @@
                         <animations/>
                     </view>
                     <connections>
+                        <outlet property="connectedPrinterNumberLabel" destination="H7I-lT-FuI" id="AOP-fV-iYX"/>
                         <outlet property="tableView" destination="t6C-p1-VSq" id="Hfq-sN-Ulg"/>
+                        <outlet property="unconnectedPrinterNumberLabel" destination="eCC-Gp-jcO" id="58h-ha-D2T"/>
                         <outlet property="webViewer" destination="CcD-st-4nI" id="niu-G3-UrM"/>
                     </connections>
                 </viewController>

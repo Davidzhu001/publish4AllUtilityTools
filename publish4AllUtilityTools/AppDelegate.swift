@@ -15,14 +15,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-//        let sourcePath = String(stringInterpolationSegment: NSBundle.mainBundle().pathForResource("some", ofType:"rb")!)
-//
-//        print(sourcePath)
-//        system(" " + sourcePath)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
     }
 
 

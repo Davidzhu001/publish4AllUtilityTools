@@ -46,6 +46,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         super.viewDidLoad()
         webResponce()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
+        print("4")
     }
     
     override func viewWillAppear() {
@@ -55,8 +56,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-    
-    
+    override func viewDidAppear() {
+        unconnectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
+        connectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
+        print("test 3")
+    }
     
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int
@@ -72,15 +76,17 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         if isHostConnected("http://\(companies[row].ip)") == false {
             cellView.imageView!.image  = NSImage(named: "cross")
             totalUnconnectedPrinters++
+            return cellView
         } else if isHostConnected("http://\(companies[row].ip)/DevMgmt/ProductUsageDyn.xml") == true {
             cellView.imageView!.image  = NSImage(named: "printer")
             totalConnectedPrinters++
+            return cellView
             }
         else    {
             cellView.imageView!.image  = NSImage(named: "web_connected")
             totalConnectedPrinters++
+            return cellView
         }
-        return cellView
     }
     
     func tableViewSelectionDidChange(notification: NSNotification) {
