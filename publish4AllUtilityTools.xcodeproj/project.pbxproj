@@ -27,6 +27,7 @@
 		BC90FAA71B9A284D00BE7824 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BC90FAA61B9A284D00BE7824 /* index.html */; };
 		BCB9C7CA1BBAE8D500500CD5 /* 404.html in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7C91BBAE8D500500CD5 /* 404.html */; settings = {ASSET_TAGS = (); }; };
 		BCB9C7CC1BBAE8FE00500CD5 /* 404.css in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7CB1BBAE8FE00500CD5 /* 404.css */; settings = {ASSET_TAGS = (); }; };
+		BCD812211BC712840056010F /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD812201BC712840056010F /* refresh.png */; settings = {ASSET_TAGS = (); }; };
 		BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */ = {isa = PBXBuildFile; fileRef = BCDF7D9D1BA221EF007E44E5 /* some.rb */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		BC90FAA61B9A284D00BE7824 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		BCB9C7C91BBAE8D500500CD5 /* 404.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 404.html; sourceTree = "<group>"; };
 		BCB9C7CB1BBAE8FE00500CD5 /* 404.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = 404.css; sourceTree = "<group>"; };
+		BCD812201BC712840056010F /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		BCDF7D9D1BA221EF007E44E5 /* some.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = some.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 		BC90FA841B9A279B00BE7824 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCD812201BC712840056010F /* refresh.png */,
 				BC6679D81BC6FC71002F47AA /* cross.png */,
 				BC6679DE1BC701C5002F47AA /* web_connected.png */,
 				BC6679DC1BC7018D002F47AA /* printer.png */,
@@ -278,6 +281,7 @@
 				BCB9C7CA1BBAE8D500500CD5 /* 404.html in Resources */,
 				BC6679DF1BC701C5002F47AA /* web_connected.png in Resources */,
 				BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */,
+				BCD812211BC712840056010F /* refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

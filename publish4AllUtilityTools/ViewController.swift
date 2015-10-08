@@ -15,14 +15,20 @@ import RealmSwift
 class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     
-    
+    var totalConnectedPrinters = 0
+    var totalUnconnectedPrinters = 0
     var printerPageCount = 0
     var ipAdress = ""
     var deletingObjectIp = ""
     let realm = try! Realm()
 
+    @IBOutlet weak var connectedPrinterNumberLabel: NSTextField!
+    @IBOutlet weak var unconnectedPrinterNumberLabel: NSTextField!
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
+    @IBAction func reloadData(sender: AnyObject) {
+        self.tableView.reloadData()
+    }
     @IBAction func reducingPrinter(sender: AnyObject) {
         
         let objectPrinter = realm.objects(PrinterInfoData).filter("ip = '\(deletingObjectIp)'")
@@ -42,7 +48,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
     }
     
-
+    override func viewWillAppear() {
+    }
     override var representedObject: AnyObject? {
         didSet {
         }
@@ -60,21 +67,20 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func tableView(tableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let companies = realm.objects(PrinterInfoData)
-        
-        
         let cellView: NSTableCellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
         cellView.textField!.stringValue = companies[row].name
         if isHostConnected("http://\(companies[row].ip)") == false {
             cellView.imageView!.image  = NSImage(named: "cross")
-            return cellView
+            totalUnconnectedPrinters++
         } else if isHostConnected("http://\(companies[row].ip)/DevMgmt/ProductUsageDyn.xml") == true {
             cellView.imageView!.image  = NSImage(named: "printer")
-            return cellView
+            totalConnectedPrinters++
             }
         else    {
             cellView.imageView!.image  = NSImage(named: "web_connected")
-            return cellView
+            totalConnectedPrinters++
         }
+        return cellView
     }
     
     func tableViewSelectionDidChange(notification: NSNotification) {
