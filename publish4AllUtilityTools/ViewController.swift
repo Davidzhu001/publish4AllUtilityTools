@@ -17,17 +17,21 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     var totalConnectedPrinters = 0
     var totalUnconnectedPrinters = 0
+    var totalPrinter = 0
     var printerPageCount = 0
     var ipAdress = ""
     var deletingObjectIp = ""
     let realm = try! Realm()
-
+    var arrayOfDicts : NSMutableArray?
     @IBOutlet weak var connectedPrinterNumberLabel: NSTextField!
     @IBOutlet weak var unconnectedPrinterNumberLabel: NSTextField!
     @IBOutlet weak var webViewer: WebView!
     @IBOutlet weak var tableView: NSTableView!
     @IBAction func reloadData(sender: AnyObject) {
         self.tableView.reloadData()
+        unconnectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
+        connectedPrinterNumberLabel.stringValue = "\(totalConnectedPrinters)"
+        
     }
     @IBAction func reducingPrinter(sender: AnyObject) {
         
@@ -38,15 +42,22 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.tableView.reloadData()
     }
     @IBAction func addingButton(sender: AnyObject) {
-        self.tableView.reloadData()
     }
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         webResponce()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
-        print("4")
+        let companies = realm.objects(PrinterInfoData)
+//        let json = (try! NSJSONSerialization.JSONObjectWithData(companies,
+//            options: []) as! NSDictionary)["response"]
+        
+        
+        print(companies)
+
     }
     
     override var representedObject: AnyObject? {
@@ -57,13 +68,16 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     override func viewDidAppear() {
         unconnectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
         connectedPrinterNumberLabel.stringValue = "\(totalConnectedPrinters)"
-        print("test 3")
     }
     
     
     func numberOfRowsInTableView(tableView: NSTableView) -> Int
     {
         let companies = realm.objects(PrinterInfoData)
+        if companies.count == 0 {
+            totalConnectedPrinters = 0
+            totalUnconnectedPrinters = 0
+        }
         return companies.count
     }
     
@@ -71,6 +85,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let companies = realm.objects(PrinterInfoData)
         let cellView: NSTableCellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
         cellView.textField!.stringValue = companies[row].name
+        if row >= 0 {
+             totalConnectedPrinters = 0
+             totalUnconnectedPrinters = 0
+        }
         if isHostConnected("http://\(companies[row].ip)") == false {
             cellView.imageView!.image  = NSImage(named: "cross")
             totalUnconnectedPrinters++
@@ -79,7 +97,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             cellView.imageView!.image  = NSImage(named: "printer")
             totalConnectedPrinters++
             return cellView
-            }
+        }
         else    {
             cellView.imageView!.image  = NSImage(named: "web_connected")
             totalConnectedPrinters++
@@ -118,25 +136,22 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     func webResponceOnClick() {
         let ipRequestAddress = "http://\(ipAdress)/"
         isHostConnected(ipRequestAddress)
-        let url = NSURL(string: ipRequestAddress)
-        let request = NSURLRequest(URL: url!);
-        
-        if isHostConnected(ipRequestAddress) {
-            self.webViewer.mainFrame.loadRequest(request);
-            print("good connection")
-            webInformationGrabStep(ipRequestAddress)
+        if let url = NSURL(string: ipRequestAddress) {
+            let request = NSURLRequest(URL: url)
+            if isHostConnected(ipRequestAddress) {
+                    self.webViewer.mainFrame.loadRequest(request);
+                    webInformationGrabStep(ipRequestAddress)
+                }
         }
         else {
             webResponce404();
-            print("no connection")
         }
-        
     }
 
     func isHostConnected(hostAddress : String) -> Bool
     {
         let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-        request.timeoutInterval = 0.5
+        request.timeoutInterval = 2
         request.HTTPMethod = "HEAD"
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
@@ -160,6 +175,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.tableView.reloadData()
     }
     
+    func labelReload() {
+        tableView.reloadData()
+    }
     
     func webInformationGrabStep(paramUrl: String) {
         let xmlInformation = paramUrl + "DevMgmt/ProductUsageDyn.xml"
@@ -194,7 +212,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-    
+    func mutableArrayofRealm() {}
     
 }
 

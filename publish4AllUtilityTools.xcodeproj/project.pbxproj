@@ -25,6 +25,7 @@
 		BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC90FA8C1B9A279B00BE7824 /* Main.storyboard */; };
 		BC90FA9A1B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */; };
 		BC90FAA71B9A284D00BE7824 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BC90FAA61B9A284D00BE7824 /* index.html */; };
+		BCB76C8B1BCC43AD00FB7171 /* PrinterSyncingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */; settings = {ASSET_TAGS = (); }; };
 		BCB9C7CA1BBAE8D500500CD5 /* 404.html in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7C91BBAE8D500500CD5 /* 404.html */; settings = {ASSET_TAGS = (); }; };
 		BCB9C7CC1BBAE8FE00500CD5 /* 404.css in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7CB1BBAE8FE00500CD5 /* 404.css */; settings = {ASSET_TAGS = (); }; };
 		BCD812211BC712840056010F /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD812201BC712840056010F /* refresh.png */; settings = {ASSET_TAGS = (); }; };
@@ -76,6 +77,7 @@
 		BC90FA981B9A279B00BE7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publish4AllUtilityToolsTests.swift; sourceTree = "<group>"; };
 		BC90FAA61B9A284D00BE7824 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSyncingData.swift; sourceTree = "<group>"; };
 		BCB9C7C91BBAE8D500500CD5 /* 404.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 404.html; sourceTree = "<group>"; };
 		BCB9C7CB1BBAE8FE00500CD5 /* 404.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = 404.css; sourceTree = "<group>"; };
 		BCD812201BC712840056010F /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				BC90FA881B9A279B00BE7824 /* ViewController.swift */,
 				BC0CB2371BB308C70011CE89 /* AddingPrinter.swift */,
 				BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */,
+				BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */,
 				BC90FA8A1B9A279B00BE7824 /* Images.xcassets */,
 				BC90FA8C1B9A279B00BE7824 /* Main.storyboard */,
 				BC90FA841B9A279B00BE7824 /* Supporting Files */,
@@ -303,6 +306,7 @@
 				BC0CB2381BB308C70011CE89 /* AddingPrinter.swift in Sources */,
 				BC90FA871B9A279B00BE7824 /* AppDelegate.swift in Sources */,
 				BC586BEC1BB0AAD9008287ED /* PrinterInfoModel.swift in Sources */,
+				BCB76C8B1BCC43AD00FB7171 /* PrinterSyncingData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
