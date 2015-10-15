@@ -28,6 +28,7 @@
 		BCB76C8B1BCC43AD00FB7171 /* PrinterSyncingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */; settings = {ASSET_TAGS = (); }; };
 		BCB9C7CA1BBAE8D500500CD5 /* 404.html in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7C91BBAE8D500500CD5 /* 404.html */; settings = {ASSET_TAGS = (); }; };
 		BCB9C7CC1BBAE8FE00500CD5 /* 404.css in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7CB1BBAE8FE00500CD5 /* 404.css */; settings = {ASSET_TAGS = (); }; };
+		BCD121521BD0236800FE15DE /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = BCD121511BD0236800FE15DE /* main.js */; settings = {ASSET_TAGS = (); }; };
 		BCD812211BC712840056010F /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD812201BC712840056010F /* refresh.png */; settings = {ASSET_TAGS = (); }; };
 		BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */ = {isa = PBXBuildFile; fileRef = BCDF7D9D1BA221EF007E44E5 /* some.rb */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSyncingData.swift; sourceTree = "<group>"; };
 		BCB9C7C91BBAE8D500500CD5 /* 404.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 404.html; sourceTree = "<group>"; };
 		BCB9C7CB1BBAE8FE00500CD5 /* 404.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = 404.css; sourceTree = "<group>"; };
+		BCD121511BD0236800FE15DE /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		BCD812201BC712840056010F /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		BCDF7D9D1BA221EF007E44E5 /* some.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = some.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +180,7 @@
 			children = (
 				BC90FAA61B9A284D00BE7824 /* index.html */,
 				BCB9C7C91BBAE8D500500CD5 /* 404.html */,
+				BCD121511BD0236800FE15DE /* main.js */,
 				BCB9C7CD1BBAF0DA00500CD5 /* css */,
 				BCDF7D9D1BA221EF007E44E5 /* some.rb */,
 			);
@@ -277,6 +280,7 @@
 			files = (
 				BC6679D91BC6FC71002F47AA /* cross.png in Resources */,
 				BCB9C7CC1BBAE8FE00500CD5 /* 404.css in Resources */,
+				BCD121521BD0236800FE15DE /* main.js in Resources */,
 				BC6679DD1BC7018D002F47AA /* printer.png in Resources */,
 				BC90FAA71B9A284D00BE7824 /* index.html in Resources */,
 				BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */,

@@ -1,72 +1,55 @@
-////: Playground - noun: a place where people can play
-//
-import Cocoa
-import ifaddrs
-//
-//var parser = NSXMLParser()
-//var posts = NSMutableArray()
-//var elements = NSMutableDictionary()
-//var element = NSString()
-//var title1 = NSMutableString()
-//var date = NSMutableString()
-//
-//func beginParsing()
-//{
-//    posts = []
-//    parser = NSXMLParser(contentsOfURL: (NSURL (fileURLWithPath:"http://images.apple.com/main/rss/hotnews/hotnews.rss")))!
-//    parser.delegate = self
-//    parser.parse()
-//    tbData!.reloadData()
-//}
-//
-//struct Number
-//{
-//    var digits: Int
-//    let numbers = 3.1415
-//}
-//
-//var n = Number(digits: 12345)
-//n.digits = 67
-//
-//print("\(n.digits)", terminator: "")
 //print("\(n.numbe
-func getWiFiAddress() -> String? {
-    var address : String?
+import Cocoa
+import WebKit
+
+// Create class which we later hook into the javascript side of the world
+class ScriptBridge : NSObject {
     
-    // Get list of all interfaces on the local machine:
-    var ifaddr : UnsafeMutablePointer<ifaddrs> = nil
-    if getifaddrs(&ifaddr) == 0 {
-        
-        // For each interface ...
-        for (var ptr = ifaddr; ptr != nil; ptr = ptr.memory.ifa_next) {
-            let interface = ptr.memory
-            
-            // Check for IPv4 or IPv6 interface:
-            let addrFamily = interface.ifa_addr.memory.sa_family
-            if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
-                
-                // Check interface name:
-                if let name = String.fromCString(interface.ifa_name) where name == "en0" {
-                    
-                    // Convert interface address to a human readable string:
-                    var addr = interface.ifa_addr.memory
-                    var hostname = [CChar](count: Int(NI_MAXHOST), repeatedValue: 0)
-                    getnameinfo(&addr, socklen_t(interface.ifa_addr.memory.sa_len),
-                        &hostname, socklen_t(hostname.count),
-                        nil, socklen_t(0), NI_NUMERICHOST)
-                    address = String.fromCString(hostname)
-                }
-            }
-        }
-        freeifaddrs(ifaddr)
+    // Sample function with single parameter
+    func doubleNumber(number: Float) -> Float {
+        return number*2
     }
     
-    return address
+    // Sample function with multiple parameters
+    func getColorWith(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> NSColor {
+        return NSColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    // Create alias in javascript env so that one can call bridge.getColor(...)
+    // instead of bridge.getColorWith_green_blue_alpha_(...)
+    override class func webScriptNameForSelector(aSelector: Selector) -> String!  {
+        switch aSelector {
+        case Selector("getColorWith:green:blue:alpha:"):
+            return "getColor"
+        default:
+            return nil
+        }
+    }
+    
+    // Only allow the two defined functions to be called from JavaScript
+    // Same applies to variable access, all blocked by default
+    override class func isSelectorExcludedFromWebScript(aSelector: Selector) -> Bool {
+        switch aSelector {
+        case Selector("getColorWith:green:blue:alpha:"):
+            return false
+        case Selector("doubleNumber:"):
+            return false
+        default:
+            return true
+        }
+    }
 }
 
-    
-    if let addr = getWiFiAddress() {
-        print(addr)
-} else {
-    print("No WiFi address")
-}
+// Init a WebView and hook up our bridge
+let webView = WebView(frame: NSRect(x: 0, y: 0, width: 300, height: 300))
+let scriptObject = webView.windowScriptObject
+let bridge = ScriptBridge()
+scriptObject.setValue(bridge, forKey: "bridge")
+
+// Function returns native Object
+let color = scriptObject.evaluateWebScript("bridge.getColor(1.0,0.8,0.6,1.0)")
+
+// Function returns JSON, so convert back to something we can use
+var error: NSError?
+let jsonContent = scriptObject.evaluateWebScript("JSON.stringify([1,2,3,4,5])")
+let jsonData = NSString(string: jsonContent as! String).dataUsingEncoding(NSUTF8StringEncoding)!

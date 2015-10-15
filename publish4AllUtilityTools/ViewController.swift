@@ -46,16 +46,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        webResponce()
+        localWebResponces()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
         let companies = realm.objects(PrinterInfoData)
-//        let json = (try! NSJSONSerialization.JSONObjectWithData(companies,
-//            options: []) as! NSDictionary)["response"]
-        
-        
         print(companies)
 
     }
@@ -85,7 +80,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let companies = realm.objects(PrinterInfoData)
         let cellView: NSTableCellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
         cellView.textField!.stringValue = companies[row].name
-        if row >= 0 {
+        if row == 0 {
              totalConnectedPrinters = 0
              totalUnconnectedPrinters = 0
         }
@@ -118,6 +113,20 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
     }
     
+    func localWebResponces(){
+        
+        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
+        let task = NSURLSession.sharedSession().dataTaskWithURL(try6, completionHandler: { (data, response, error) -> Void in
+                let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print(webContent!)
+                
+            })
+            task.resume()
+
+        let html = "<html><body><h1>Welcom to Publish 4 All app</h1><p>This is my web page.\(totalConnectedPrinters)</p></body></html>"
+        
+        webViewer.mainFrame.loadHTMLString(html, baseURL: nil)
+    }
     
     func webResponce() {
         let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
@@ -151,7 +160,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     func isHostConnected(hostAddress : String) -> Bool
     {
         let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-        request.timeoutInterval = 2
+        request.timeoutInterval = 1
         request.HTTPMethod = "HEAD"
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
@@ -210,9 +219,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         else {
         print("no information")
         }
-    }
-    
-    func mutableArrayofRealm() {}
+    }    
     
 }
 
