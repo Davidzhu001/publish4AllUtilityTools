@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B30a" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B38b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
@@ -937,7 +937,7 @@
                         <outlet property="connectedPrinterNumberLabel" destination="H7I-lT-FuI" id="AOP-fV-iYX"/>
                         <outlet property="tableView" destination="t6C-p1-VSq" id="Hfq-sN-Ulg"/>
                         <outlet property="unconnectedPrinterNumberLabel" destination="eCC-Gp-jcO" id="58h-ha-D2T"/>
-                        <outlet property="webViewer" destination="CcD-st-4nI" id="niu-G3-UrM"/>
+                        <outlet property="webView" destination="CcD-st-4nI" id="sx9-x4-tg1"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

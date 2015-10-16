@@ -12,12 +12,13 @@ import Realm
 import Foundation
 import RealmSwift
 
-class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, WKScriptMessageHandler {
     
     
     var totalConnectedPrinters = 0
     var totalUnconnectedPrinters = 0
     var totalPrinter = 0
+    var webContentDetails = ""
     var printerPageCount = 0
     var ipAdress = ""
     var deletingObjectIp = ""
@@ -25,7 +26,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     var arrayOfDicts : NSMutableArray?
     @IBOutlet weak var connectedPrinterNumberLabel: NSTextField!
     @IBOutlet weak var unconnectedPrinterNumberLabel: NSTextField!
-    @IBOutlet weak var webViewer: WebView!
+    @IBOutlet weak var webView: WebView!
     @IBOutlet weak var tableView: NSTableView!
     @IBAction func reloadData(sender: AnyObject) {
         self.tableView.reloadData()
@@ -44,14 +45,31 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     @IBAction func addingButton(sender: AnyObject) {
     }
     
+    func webView(webView: WKWebView!, decidePolicyForNavigationAction navigationAction: WKNavigationAction!, decisionHandler: ((WKNavigationActionPolicy) -> Void)!) {
+        if (navigationAction.navigationType == WKNavigationType.LinkActivated && !navigationAction.request.URL!.host!.lowercaseString.hasPrefix("www.appcoda.com/")) {
+            print("something")
+        } else {
+            decisionHandler(WKNavigationActionPolicy.Allow)
+        }
+    }
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        localWebResponces()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
-        let companies = realm.objects(PrinterInfoData)
-        print(companies)
+
+        
+        
+        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
+        let task = NSURLSession.sharedSession().dataTaskWithURL(try6, completionHandler: { (data, response, error) -> Void in
+            let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            self.webContentDetails = webContent! as String
+            print("111111")
+            
+        })
+        task.resume()
+        localWebResponces();
 
     }
     
@@ -114,32 +132,29 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     }
     
     func localWebResponces(){
+        let htmlUrl = self.webContentDetails
         
-        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
-        let task = NSURLSession.sharedSession().dataTaskWithURL(try6, completionHandler: { (data, response, error) -> Void in
-                let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                print(webContent!)
-                
-            })
-            task.resume()
+        self.webView.mainFrame.loadHTMLString(htmlUrl, baseURL: nil)
 
-        let html = "<html><body><h1>Welcom to Publish 4 All app</h1><p>This is my web page.\(totalConnectedPrinters)</p></body></html>"
-        
-        webViewer.mainFrame.loadHTMLString(html, baseURL: nil)
     }
+
+    
+
+    
+    
     
     func webResponce() {
         let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
         let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
         let request = NSURLRequest(URL: fragUrl)
-        self.webViewer.mainFrame.loadRequest(request)
+        self.webView.mainFrame.loadRequest(request)
     };
     
     func webResponce404() {
         let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("404", ofType:"html")!)
         let fragUrl = NSURL(string: "404.html", relativeToURL: try6)!
         let request = NSURLRequest(URL: fragUrl)
-        self.webViewer.mainFrame.loadRequest(request)
+        self.webView.mainFrame.loadRequest(request)
     };
     
     func webResponceOnClick() {
@@ -148,7 +163,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         if let url = NSURL(string: ipRequestAddress) {
             let request = NSURLRequest(URL: url)
             if isHostConnected(ipRequestAddress) {
-                    self.webViewer.mainFrame.loadRequest(request);
+                    self.webView.mainFrame.loadRequest(request);
                     webInformationGrabStep(ipRequestAddress)
                 }
         }
@@ -188,6 +203,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         tableView.reloadData()
     }
     
+    
+    
     func webInformationGrabStep(paramUrl: String) {
         let xmlInformation = paramUrl + "DevMgmt/ProductUsageDyn.xml"
         if isHostConnected(xmlInformation) {
@@ -219,7 +236,12 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         else {
         print("no information")
         }
-    }    
+    }
+    func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
+        if(message.name == "callbackHandler") {
+            print("JavaScript is sending a message \(message.body)")
+        }
+    }
     
 }
 
