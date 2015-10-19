@@ -16,9 +16,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     
     // variables handling the information of the
-    var totalConnectedPrinters = 0
-    var totalUnconnectedPrinters = 0
-    var totalPrinter = 0
     var webContentDetails = ""
     var printerPageCount = 0
     var ipAdress = ""
@@ -111,18 +108,12 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     }
     
     override func viewDidAppear() {
-        unconnectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
-        connectedPrinterNumberLabel.stringValue = "\(totalConnectedPrinters)"
     }
     
    // tableView functions
     func numberOfRowsInTableView(tableView: NSTableView) -> Int
     {
         let companies = realm.objects(PrinterInfoData)
-        if companies.count == 0 {
-            totalConnectedPrinters = 0
-            totalUnconnectedPrinters = 0
-        }
         return companies.count
     }
     
@@ -130,22 +121,15 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let companies = realm.objects(PrinterInfoData)
         let cellView: NSTableCellView = tableView.makeViewWithIdentifier("cell", owner: self) as! NSTableCellView
         cellView.textField!.stringValue = companies[row].name
-        if row == 0 {
-             totalConnectedPrinters = 0
-             totalUnconnectedPrinters = 0
-        }
         if isHostConnected("http://\(companies[row].ip)") == false {
             cellView.imageView!.image  = NSImage(named: "cross")
-            totalUnconnectedPrinters++
             return cellView
         } else if isHostConnected("http://\(companies[row].ip)/DevMgmt/ProductUsageDyn.xml") == true {
             cellView.imageView!.image  = NSImage(named: "printer")
-            totalConnectedPrinters++
             return cellView
         }
         else    {
             cellView.imageView!.image  = NSImage(named: "web_connected")
-            totalConnectedPrinters++
             return cellView
         }
     }
