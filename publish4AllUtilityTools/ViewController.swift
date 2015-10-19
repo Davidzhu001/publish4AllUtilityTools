@@ -12,9 +12,10 @@ import Realm
 import Foundation
 import RealmSwift
 
-class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, WKScriptMessageHandler {
+class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, WKScriptMessageHandler, WebPolicyDelegate, WebFrameLoadDelegate, WebUIDelegate  {
     
     
+    // variables handling the information of the
     var totalConnectedPrinters = 0
     var totalUnconnectedPrinters = 0
     var totalPrinter = 0
@@ -24,14 +25,18 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     var deletingObjectIp = ""
     let realm = try! Realm()
     var arrayOfDicts : NSMutableArray?
+    
+    var printerDataAarry = [Dictionary<String,String>]()
+    // outlets
     @IBOutlet weak var connectedPrinterNumberLabel: NSTextField!
     @IBOutlet weak var unconnectedPrinterNumberLabel: NSTextField!
     @IBOutlet weak var webView: WebView!
+    
     @IBOutlet weak var tableView: NSTableView!
     @IBAction func reloadData(sender: AnyObject) {
         self.tableView.reloadData()
-        unconnectedPrinterNumberLabel.stringValue = "\(totalUnconnectedPrinters)"
-        connectedPrinterNumberLabel.stringValue = "\(totalConnectedPrinters)"
+        printerDataArray()
+        print(printerDataAarry.last)
         
     }
     @IBAction func reducingPrinter(sender: AnyObject) {
@@ -45,6 +50,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     @IBAction func addingButton(sender: AnyObject) {
     }
     
+    
+    
+    // webview override functions
+    
     func webView(webView: WKWebView!, decidePolicyForNavigationAction navigationAction: WKNavigationAction!, decisionHandler: ((WKNavigationActionPolicy) -> Void)!) {
         if (navigationAction.navigationType == WKNavigationType.LinkActivated && !navigationAction.request.URL!.host!.lowercaseString.hasPrefix("www.appcoda.com/")) {
             print("something")
@@ -53,10 +62,12 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(printerDataAarry)
+        webView.policyDelegate = self;
+        webView.frameLoadDelegate = self;
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
 
         
@@ -70,7 +81,28 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         })
         task.resume()
         localWebResponces();
+        
+        
+        // Do any additional setup after loading the view.
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "WebKitDeveloperExtras")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        printerDataArray()
+        print(printerDataAarry)
 
+    }
+    
+    
+    func printerDataArray() {
+        let printerDatas = realm.objects(PrinterInfoData)
+        var index = 0;
+       while index < printerDatas.count {
+        if index == 0 {
+            printerDataAarry = []
+        }
+        let newData = ["Ip": String("\(printerDatas[index].ip)"), "name": String("\(printerDatas[index].name)")]
+        self.printerDataAarry.append(newData)
+        index++
+        }
     }
     
     override var representedObject: AnyObject? {
@@ -83,7 +115,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         connectedPrinterNumberLabel.stringValue = "\(totalConnectedPrinters)"
     }
     
-    
+   // tableView functions
     func numberOfRowsInTableView(tableView: NSTableView) -> Int
     {
         let companies = realm.objects(PrinterInfoData)
@@ -139,6 +171,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     }
 
     
+    
+    // webview supporting functions
 
     
     
@@ -175,7 +209,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     func isHostConnected(hostAddress : String) -> Bool
     {
         let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-        request.timeoutInterval = 1
+        request.timeoutInterval = 0.3
         request.HTTPMethod = "HEAD"
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
