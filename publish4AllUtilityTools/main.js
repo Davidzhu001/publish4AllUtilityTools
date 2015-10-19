@@ -1,15 +1,14 @@
-function callNativeApp () {
-    try {
-        webkit.messageHandlers.callbackHandler.postMessage("Hello from JavaScript");
-    } catch(err) {
-        console.log('The native context does not exist yet');
-    }
-}
 
-setTimeout(function () {
-           callNativeApp();
-           }, 5000);
+var param;
 
-function redHeader() {
-    document.querySelector('h1').style.color = "red";
-}
+
+console.log(param);
+
+function running() {
+    console.log(param);
+};
+
+function running() {
+    console.log(param);
+    document.getElementById('demo').innerHTML = param
+};

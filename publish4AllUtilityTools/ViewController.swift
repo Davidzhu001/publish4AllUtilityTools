@@ -51,41 +51,27 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     // webview override functions
     
-    func webView(webView: WKWebView!, decidePolicyForNavigationAction navigationAction: WKNavigationAction!, decisionHandler: ((WKNavigationActionPolicy) -> Void)!) {
-        if (navigationAction.navigationType == WKNavigationType.LinkActivated && !navigationAction.request.URL!.host!.lowercaseString.hasPrefix("www.appcoda.com/")) {
-            print("something")
-        } else {
-            decisionHandler(WKNavigationActionPolicy.Allow)
-        }
+    func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
+        self.webView.stringByEvaluatingJavaScriptFromString("param = 'sinet'")
+        self.webView.stringByEvaluatingJavaScriptFromString("running()")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(printerDataAarry)
-        webView.policyDelegate = self;
-        webView.frameLoadDelegate = self;
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"load", object: nil)
-
-        
-        
-        let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
-        let task = NSURLSession.sharedSession().dataTaskWithURL(try6, completionHandler: { (data, response, error) -> Void in
-            let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            self.webContentDetails = webContent! as String
-            print("111111")
-            
-        })
-        task.resume()
-        localWebResponces();
-        
         
         // Do any additional setup after loading the view.
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "WebKitDeveloperExtras")
         NSUserDefaults.standardUserDefaults().synchronize()
+        
+        webView.policyDelegate = self;
+        webView.frameLoadDelegate = self;
+        webView.UIDelegate = self;
+        webView.editingDelegate = self;
         printerDataArray()
         print(printerDataAarry)
-
+        
+        webResponce()
     }
     
     
@@ -159,8 +145,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     // webview supporting functions
 
     
-    
-    
     func webResponce() {
         let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
         let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
@@ -211,10 +195,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         
         dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
         return (responseCode == 200)
-    }
-    
-    func loadList(notification: NSNotification){
-        self.tableView.reloadData()
     }
     
     func labelReload() {
