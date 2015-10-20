@@ -25,6 +25,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     var totalJams = 0
     var totalMissPicks = 0
     var returnFinalValue = 0;
+    var printerName = "";
+    var PrinterIp = "";
     
     
     
@@ -140,7 +142,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             let selectedItemIp = companies[self.tableView.selectedRow].ip
             ipAdress = selectedItemIp
             self.deletingObjectIp = ipAdress
-            xmlInformationToJsValue()
             webResponceOnClick()
             
         }
@@ -174,12 +175,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func webResponceOnClick() {
         let ipRequestAddress = "http://\(ipAdress)/"
-        if let url = NSURL(string: ipRequestAddress) {
-            let request = NSURLRequest(URL: url)
+        if let _ = NSURL(string: ipRequestAddress) {
             if isHostConnected(ipRequestAddress) {
-                    self.webView.mainFrame.loadRequest(request);
-                    webInformationGrabStep(ipRequestAddress, firstArgument: "", secondArgument: "")
-                }
+                webResponce();
+                xmlInformationToJsValue()
+            }
             else {
                 webResponce404();
             }
