@@ -149,6 +149,16 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             
         }
     }
+    // tableview adding button data reload.
+    func refreshList(notification: NSNotification){
+        tableView.reloadData()
+    }
+    
+    
+    
+    
+    
+    
     
     func localWebResponces(){
         let htmlUrl = self.webContentDetails
@@ -191,6 +201,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             webResponce404();
         }
     }
+    
+    // connection checking
 
     func isHostConnected(hostAddress : String) -> Bool
     {
@@ -263,9 +275,5 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             print("JavaScript is sending a message \(message.body)")
         }
     }
-    func refreshList(notification: NSNotification){
-        tableView.reloadData()
-    }
-    
 }
 
