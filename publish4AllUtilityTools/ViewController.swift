@@ -60,6 +60,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         self.tableView.reloadData()
     }
     @IBAction func addingButton(sender: AnyObject) {
+         self.tableView.reloadData()
     }
     
     
@@ -87,7 +88,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         print(printerDataAarry)
         
         webResponce()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshList:", name:"refreshMyTableView", object: nil) 
     }
+    
     
     
     func printerDataArray() {
@@ -220,7 +223,6 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
             let printerPageArray = webContent!.componentsSeparatedByString(firstArgument)
-            print(firstArgument)
             if printerPageArray.count > 1 {
                 
                 let printerPageArray = printerPageArray[1].componentsSeparatedByString(secondArgument)
@@ -231,6 +233,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
                     let printerLocalPageCount = printerPageArray[0]
                         if let returnValue = Int(printerLocalPageCount) {
                             self.returnFinalValue = returnValue
+                            print(firstArgument)
+                            print(returnValue)
                         }
                 }
             }
@@ -258,6 +262,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         if(message.name == "callbackHandler") {
             print("JavaScript is sending a message \(message.body)")
         }
+    }
+    func refreshList(notification: NSNotification){
+        tableView.reloadData()
     }
     
 }

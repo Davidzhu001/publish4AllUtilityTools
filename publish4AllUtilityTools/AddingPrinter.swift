@@ -28,7 +28,7 @@ class AddingPrinter: NSViewController {
         realm.write {
             realm.add(addingPrinterForm)
             }
-        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("refreshMyTableView", object: nil)
         self.view.window?.close()
         }
         }
