@@ -16,8 +16,21 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     
     // variables handling the information of the
+    
+    //printer Info
     var webContentDetails = ""
     var printerPageCount = 0
+    var totalPagePrint = 0
+    var totalColorPage = 0
+    var totalJams = 0
+    var totalMissPicks = 0
+    var returnFinalValue = 0;
+    
+    
+    
+    
+    
+    
     var ipAdress = ""
     var deletingObjectIp = ""
     let realm = try! Realm()
@@ -126,8 +139,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
             let companies = realm.objects(PrinterInfoData)
             let selectedItemIp = companies[self.tableView.selectedRow].ip
             ipAdress = selectedItemIp
-            print(ipAdress)
             self.deletingObjectIp = ipAdress
+            xmlInformationToJsValue()
             webResponceOnClick()
             
         }
@@ -161,13 +174,15 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     func webResponceOnClick() {
         let ipRequestAddress = "http://\(ipAdress)/"
-        isHostConnected(ipRequestAddress)
         if let url = NSURL(string: ipRequestAddress) {
             let request = NSURLRequest(URL: url)
             if isHostConnected(ipRequestAddress) {
                     self.webView.mainFrame.loadRequest(request);
-                    webInformationGrabStep(ipRequestAddress)
+                    webInformationGrabStep(ipRequestAddress, firstArgument: "", secondArgument: "")
                 }
+            else {
+                webResponce404();
+            }
         }
         else {
             webResponce404();
@@ -197,44 +212,48 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         return (responseCode == 200)
     }
     
-    func labelReload() {
-        tableView.reloadData()
-    }
-    
-    
-    
-    func webInformationGrabStep(paramUrl: String) {
-        let xmlInformation = paramUrl + "DevMgmt/ProductUsageDyn.xml"
+    func webInformationGrabStep(paramUrl: String, firstArgument: String, secondArgument: String) -> Int {
+        let ipRequestAddress = "http://\(paramUrl)/"
+        let xmlInformation = ipRequestAddress + "DevMgmt/ProductUsageDyn.xml"
         if isHostConnected(xmlInformation) {
         let url = NSURL(string: xmlInformation)
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
             let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            let printerPageArray = webContent!.componentsSeparatedByString("<dd:TotalImpressions PEID=\"5082\">")
+            let printerPageArray = webContent!.componentsSeparatedByString(firstArgument)
+            print(firstArgument)
             if printerPageArray.count > 1 {
                 
-                print(printerPageArray.count)
-                
-                let printerPageArray = printerPageArray[1].componentsSeparatedByString("</dd:TotalImpressions>")
+                let printerPageArray = printerPageArray[1].componentsSeparatedByString(secondArgument)
                 
                 if printerPageArray.count > 1 {
                     
                     
                     let printerLocalPageCount = printerPageArray[0]
-                    
-                    self.printerPageCount = Int(printerLocalPageCount)!
-                    print(printerLocalPageCount)
-                    
+                        if let returnValue = Int(printerLocalPageCount) {
+                            self.returnFinalValue = returnValue
+                        }
                 }
             }
             
 
         })
         task.resume()
+            return returnFinalValue
         }
         else {
-        print("no information")
+        return 0
         }
     }
+    
+    func xmlInformationToJsValue() {
+        self.printerPageCount = webInformationGrabStep(ipAdress, firstArgument: "<dd:TotalImpressions PEID=\"5082\">", secondArgument: "</dd:TotalImpressions>")
+        self.totalPagePrint = webInformationGrabStep(ipAdress, firstArgument: "<dd:TotalImpressions>", secondArgument: "</dd:TotalImpressions>")
+        self.totalColorPage = webInformationGrabStep(ipAdress, firstArgument: "<dd:ColorImpressions>", secondArgument: "</dd:ColorImpressions>")
+        self.totalJams = webInformationGrabStep(ipAdress, firstArgument: "<dd:JamEvents PEID=\"16076\">", secondArgument: "</dd:JamEvents>")
+        self.totalMissPicks = webInformationGrabStep(ipAdress, firstArgument: "<dd:MispickEvents>", secondArgument: "</dd:MispickEvents>")
+    }
+    
+    
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if(message.name == "callbackHandler") {
             print("JavaScript is sending a message \(message.body)")
