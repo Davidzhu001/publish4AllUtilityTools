@@ -16,14 +16,22 @@
 		BC586BEA1BB0AA3C008287ED /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BC586BDC1BB0A9EF008287ED /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BC586BEC1BB0AAD9008287ED /* PrinterInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */; settings = {ASSET_TAGS = (); }; };
 		BC586BED1BB0AAD9008287ED /* PrinterInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */; settings = {ASSET_TAGS = (); }; };
+		BC5BC2761BD6BDED00CE5DCE /* bootstrap-theme.min.css in Resources */ = {isa = PBXBuildFile; fileRef = BC5BC2751BD6BDED00CE5DCE /* bootstrap-theme.min.css */; settings = {ASSET_TAGS = (); }; };
+		BC5BC27C1BD6C02300CE5DCE /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = BC5BC27B1BD6C02300CE5DCE /* main.css */; settings = {ASSET_TAGS = (); }; };
+		BC6679D91BC6FC71002F47AA /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6679D81BC6FC71002F47AA /* cross.png */; settings = {ASSET_TAGS = (); }; };
+		BC6679DD1BC7018D002F47AA /* printer.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6679DC1BC7018D002F47AA /* printer.png */; settings = {ASSET_TAGS = (); }; };
+		BC6679DF1BC701C5002F47AA /* web_connected.png in Resources */ = {isa = PBXBuildFile; fileRef = BC6679DE1BC701C5002F47AA /* web_connected.png */; settings = {ASSET_TAGS = (); }; };
 		BC90FA871B9A279B00BE7824 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA861B9A279B00BE7824 /* AppDelegate.swift */; };
 		BC90FA891B9A279B00BE7824 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA881B9A279B00BE7824 /* ViewController.swift */; };
 		BC90FA8B1B9A279B00BE7824 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC90FA8A1B9A279B00BE7824 /* Images.xcassets */; };
 		BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC90FA8C1B9A279B00BE7824 /* Main.storyboard */; };
 		BC90FA9A1B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */; };
 		BC90FAA71B9A284D00BE7824 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = BC90FAA61B9A284D00BE7824 /* index.html */; };
+		BCB76C8B1BCC43AD00FB7171 /* PrinterSyncingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */; settings = {ASSET_TAGS = (); }; };
 		BCB9C7CA1BBAE8D500500CD5 /* 404.html in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7C91BBAE8D500500CD5 /* 404.html */; settings = {ASSET_TAGS = (); }; };
 		BCB9C7CC1BBAE8FE00500CD5 /* 404.css in Resources */ = {isa = PBXBuildFile; fileRef = BCB9C7CB1BBAE8FE00500CD5 /* 404.css */; settings = {ASSET_TAGS = (); }; };
+		BCD121521BD0236800FE15DE /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = BCD121511BD0236800FE15DE /* main.js */; settings = {ASSET_TAGS = (); }; };
+		BCD812211BC712840056010F /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = BCD812201BC712840056010F /* refresh.png */; settings = {ASSET_TAGS = (); }; };
 		BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */ = {isa = PBXBuildFile; fileRef = BCDF7D9D1BA221EF007E44E5 /* some.rb */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +67,11 @@
 		BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterInfoModel.swift; sourceTree = "<group>"; };
 		BC5AFAAC1B9F784500055872 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		BC5AFAB01BA0DBAE00055872 /* Syntax.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = Syntax.rb; sourceTree = "<group>"; };
+		BC5BC2751BD6BDED00CE5DCE /* bootstrap-theme.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "bootstrap-theme.min.css"; sourceTree = "<group>"; };
+		BC5BC27B1BD6C02300CE5DCE /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
+		BC6679D81BC6FC71002F47AA /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
+		BC6679DC1BC7018D002F47AA /* printer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = printer.png; sourceTree = "<group>"; };
+		BC6679DE1BC701C5002F47AA /* web_connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web_connected.png; sourceTree = "<group>"; };
 		BC90FA811B9A279B00BE7824 /* publish4AllUtilityTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = publish4AllUtilityTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC90FA851B9A279B00BE7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC90FA861B9A279B00BE7824 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,8 +82,11 @@
 		BC90FA981B9A279B00BE7824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC90FA991B9A279B00BE7824 /* publish4AllUtilityToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publish4AllUtilityToolsTests.swift; sourceTree = "<group>"; };
 		BC90FAA61B9A284D00BE7824 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrinterSyncingData.swift; sourceTree = "<group>"; };
 		BCB9C7C91BBAE8D500500CD5 /* 404.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 404.html; sourceTree = "<group>"; };
 		BCB9C7CB1BBAE8FE00500CD5 /* 404.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = 404.css; sourceTree = "<group>"; };
+		BCD121511BD0236800FE15DE /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		BCD812201BC712840056010F /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		BCDF7D9D1BA221EF007E44E5 /* some.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = some.rb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +141,7 @@
 				BC90FA881B9A279B00BE7824 /* ViewController.swift */,
 				BC0CB2371BB308C70011CE89 /* AddingPrinter.swift */,
 				BC586BEB1BB0AAD9008287ED /* PrinterInfoModel.swift */,
+				BCB76C8A1BCC43AD00FB7171 /* PrinterSyncingData.swift */,
 				BC90FA8A1B9A279B00BE7824 /* Images.xcassets */,
 				BC90FA8C1B9A279B00BE7824 /* Main.storyboard */,
 				BC90FA841B9A279B00BE7824 /* Supporting Files */,
@@ -136,6 +153,10 @@
 		BC90FA841B9A279B00BE7824 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BCD812201BC712840056010F /* refresh.png */,
+				BC6679D81BC6FC71002F47AA /* cross.png */,
+				BC6679DE1BC701C5002F47AA /* web_connected.png */,
+				BC6679DC1BC7018D002F47AA /* printer.png */,
 				BC90FA851B9A279B00BE7824 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -163,6 +184,7 @@
 			children = (
 				BC90FAA61B9A284D00BE7824 /* index.html */,
 				BCB9C7C91BBAE8D500500CD5 /* 404.html */,
+				BCD121511BD0236800FE15DE /* main.js */,
 				BCB9C7CD1BBAF0DA00500CD5 /* css */,
 				BCDF7D9D1BA221EF007E44E5 /* some.rb */,
 			);
@@ -173,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				BCB9C7CB1BBAE8FE00500CD5 /* 404.css */,
+				BC5BC2751BD6BDED00CE5DCE /* bootstrap-theme.min.css */,
+				BC5BC27B1BD6C02300CE5DCE /* main.css */,
 			);
 			name = css;
 			sourceTree = "<group>";
@@ -260,12 +284,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6679D91BC6FC71002F47AA /* cross.png in Resources */,
 				BCB9C7CC1BBAE8FE00500CD5 /* 404.css in Resources */,
+				BCD121521BD0236800FE15DE /* main.js in Resources */,
+				BC6679DD1BC7018D002F47AA /* printer.png in Resources */,
 				BC90FAA71B9A284D00BE7824 /* index.html in Resources */,
 				BCDF7D9E1BA221EF007E44E5 /* some.rb in Resources */,
 				BC90FA8B1B9A279B00BE7824 /* Images.xcassets in Resources */,
 				BCB9C7CA1BBAE8D500500CD5 /* 404.html in Resources */,
+				BC5BC2761BD6BDED00CE5DCE /* bootstrap-theme.min.css in Resources */,
+				BC5BC27C1BD6C02300CE5DCE /* main.css in Resources */,
+				BC6679DF1BC701C5002F47AA /* web_connected.png in Resources */,
 				BC90FA8E1B9A279B00BE7824 /* Main.storyboard in Resources */,
+				BCD812211BC712840056010F /* refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +318,7 @@
 				BC0CB2381BB308C70011CE89 /* AddingPrinter.swift in Sources */,
 				BC90FA871B9A279B00BE7824 /* AppDelegate.swift in Sources */,
 				BC586BEC1BB0AAD9008287ED /* PrinterInfoModel.swift in Sources */,
+				BCB76C8B1BCC43AD00FB7171 /* PrinterSyncingData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
