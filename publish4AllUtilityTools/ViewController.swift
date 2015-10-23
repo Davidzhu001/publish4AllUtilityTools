@@ -26,15 +26,11 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     var totalMissPicks = 0
     var returnFinalValue = 0;
     var printerName = "";
-    var PrinterIp = "";
+    var printerIp = "";
     
     
     
-    
-    
-    
-    var ipAdress = ""
-    var deletingObjectIp = ""
+    var deletingObjectIp = "";
     let realm = try! Realm()
     var arrayOfDicts : NSMutableArray?
     
@@ -68,14 +64,31 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     // webview override functions
     
     func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
-        self.webView.stringByEvaluatingJavaScriptFromString("param = 'sinet'")
-        self.webView.stringByEvaluatingJavaScriptFromString("running()")
+        xmlInformationToJsValue()
+        let seconds = 1.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            print("1234234")
+            self.webView.stringByEvaluatingJavaScriptFromString("printerPageCount = \"\(self.printerPageCount)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("webContentDetails = \"\(self.webContentDetails)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("totalPagePrint = \"\(self.totalPagePrint)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("totalColorPage = \"\(self.totalColorPage)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("totalJams = \"\(self.totalJams)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("totalMissPicks = \"\(self.totalMissPicks)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("printerName = \"\(self.printerName)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("printerIp = \"\(self.printerIp)\"")
+            self.webView.stringByEvaluatingJavaScriptFromString("running()")
+            print(self.printerPageCount)
+        })
     }
-    
+    override func viewWillAppear() {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         NSUserDefaults.standardUserDefaults().setBool(true, forKey: "WebKitDeveloperExtras")
         NSUserDefaults.standardUserDefaults().synchronize()
@@ -86,9 +99,8 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         webView.editingDelegate = self;
         printerDataArray()
         print(printerDataAarry)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshList:", name:"refreshMyTableView", object: nil)
         webResponce()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshList:", name:"refreshMyTableView", object: nil) 
     }
     
     
@@ -113,6 +125,9 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     override func viewDidAppear() {
     }
+    
+    
+    
     
    // tableView functions
     func numberOfRowsInTableView(tableView: NSTableView) -> Int
@@ -143,12 +158,16 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         {
             let companies = realm.objects(PrinterInfoData)
             let selectedItemIp = companies[self.tableView.selectedRow].ip
-            ipAdress = selectedItemIp
-            self.deletingObjectIp = ipAdress
+            let selectedItemName = companies[self.tableView.selectedRow].ip
+            self.printerIp = selectedItemIp
+            self.printerName = selectedItemName
+            self.deletingObjectIp = printerIp
             webResponceOnClick()
             
         }
     }
+    
+    
     // tableview adding button data reload.
     func refreshList(notification: NSNotification){
         tableView.reloadData()
@@ -173,6 +192,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
 
     
     func webResponce() {
+        xmlInformationToJsValue()
         let try6 = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("index", ofType:"html")!)
         let fragUrl = NSURL(string: "index.html", relativeToURL: try6)!
         let request = NSURLRequest(URL: fragUrl)
@@ -187,11 +207,10 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     };
     
     func webResponceOnClick() {
-        let ipRequestAddress = "http://\(ipAdress)/"
+        let ipRequestAddress = "http://\(printerIp)/"
         if let _ = NSURL(string: ipRequestAddress) {
             if isHostConnected(ipRequestAddress) {
                 webResponce();
-                xmlInformationToJsValue()
             }
             else {
                 webResponce404();
@@ -202,12 +221,14 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         }
     }
     
+    
+    
     // connection checking
 
     func isHostConnected(hostAddress : String) -> Bool
     {
         let request = NSMutableURLRequest(URL: NSURL(string: hostAddress.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)!)
-        request.timeoutInterval = 0.3
+        request.timeoutInterval = 3
         request.HTTPMethod = "HEAD"
         
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
@@ -227,48 +248,61 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
         return (responseCode == 200)
     }
     
-    func webInformationGrabStep(paramUrl: String, firstArgument: String, secondArgument: String) -> Int {
+    
+    func webInformationGrabStep(paramUrl: String, firstArgument: String, secondArgument: String, thirdArgument: String){
         let ipRequestAddress = "http://\(paramUrl)/"
+        var localreturnFinalValue = 0
         let xmlInformation = ipRequestAddress + "DevMgmt/ProductUsageDyn.xml"
-        if isHostConnected(xmlInformation) {
         let url = NSURL(string: xmlInformation)
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
-            let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            let printerPageArray = webContent!.componentsSeparatedByString(firstArgument)
-            if printerPageArray.count > 1 {
-                
-                let printerPageArray = printerPageArray[1].componentsSeparatedByString(secondArgument)
-                
+            if let webContent = NSString(data: data!, encoding: NSUTF8StringEncoding) {
+                let printerPageArray = webContent.componentsSeparatedByString(firstArgument)
                 if printerPageArray.count > 1 {
                     
+                    let printerPageArray = printerPageArray[1].componentsSeparatedByString(secondArgument)
                     
-                    let printerLocalPageCount = printerPageArray[0]
+                    if printerPageArray.count > 1 {
+                        
+                        
+                        let printerLocalPageCount = printerPageArray[0]
                         if let returnValue = Int(printerLocalPageCount) {
-                            self.returnFinalValue = returnValue
-                            print(firstArgument)
-                            print(returnValue)
+                            localreturnFinalValue = returnValue
+                            switch thirdArgument {
+                            case "printerPageCount":
+                                self.printerPageCount = localreturnFinalValue
+                                print(localreturnFinalValue)
+                            case "totalPagePrint":
+                                self.totalPagePrint = localreturnFinalValue
+                                print(localreturnFinalValue)
+                            case "totalColorPage":
+                                self.totalColorPage = localreturnFinalValue
+                                print(localreturnFinalValue)
+                            case "totalJams":
+                                self.totalJams = localreturnFinalValue
+                                print(localreturnFinalValue)
+                            case "totalMissPicks":
+                                self.totalMissPicks = localreturnFinalValue
+                                print(localreturnFinalValue)
+                            default:
+                                print("misstake")
+                            }
                         }
+                    }
                 }
             }
             
-
         })
         task.resume()
-            return returnFinalValue
-        }
-        else {
-        return 0
-        }
+        print("misstake")
     }
     
     func xmlInformationToJsValue() {
-        self.printerPageCount = webInformationGrabStep(ipAdress, firstArgument: "<dd:TotalImpressions PEID=\"5082\">", secondArgument: "</dd:TotalImpressions>")
-        self.totalPagePrint = webInformationGrabStep(ipAdress, firstArgument: "<dd:TotalImpressions>", secondArgument: "</dd:TotalImpressions>")
-        self.totalColorPage = webInformationGrabStep(ipAdress, firstArgument: "<dd:ColorImpressions>", secondArgument: "</dd:ColorImpressions>")
-        self.totalJams = webInformationGrabStep(ipAdress, firstArgument: "<dd:JamEvents PEID=\"16076\">", secondArgument: "</dd:JamEvents>")
-        self.totalMissPicks = webInformationGrabStep(ipAdress, firstArgument: "<dd:MispickEvents>", secondArgument: "</dd:MispickEvents>")
+        webInformationGrabStep(printerIp, firstArgument: "<dd:TotalImpressions PEID=\"5082\">", secondArgument: "</dd:TotalImpressions>", thirdArgument: "printerPageCount")
+        webInformationGrabStep(printerIp, firstArgument: "<dd:TotalImpressions>", secondArgument: "</dd:TotalImpressions>", thirdArgument: "totalPagePrint")
+        webInformationGrabStep(printerIp, firstArgument: "<dd:ColorImpressions>", secondArgument: "</dd:ColorImpressions>", thirdArgument: "totalColorPage")
+        webInformationGrabStep(printerIp, firstArgument: "<dd:JamEvents PEID=\"16076\">", secondArgument: "</dd:JamEvents>", thirdArgument: "totalJams")
+        webInformationGrabStep(printerIp, firstArgument: "<dd:MispickEvents>", secondArgument: "</dd:MispickEvents>", thirdArgument: "totalMissPicks")
     }
-    
     
     func userContentController(userContentController: WKUserContentController, didReceiveScriptMessage message: WKScriptMessage){
         if(message.name == "callbackHandler") {
