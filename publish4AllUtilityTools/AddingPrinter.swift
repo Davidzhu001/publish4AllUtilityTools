@@ -24,7 +24,7 @@ class AddingPrinter: NSViewController {
         let addingPrinterForm = PrinterInfoData()
         addingPrinterForm.name = printerName.stringValue
         addingPrinterForm.ip = printerIp.stringValue
-        let realm = try! Realm()
+        let realm = try! Realm
         realm.write {
             realm.add(addingPrinterForm)
             }
