@@ -31,7 +31,7 @@ class ViewController: NSViewController, NSTableViewDataSource, NSTableViewDelega
     
     
     var deletingObjectIp = "";
-    let realm = try! Realm()
+    let realm = try! Realm
     var arrayOfDicts : NSMutableArray?
     
     var printerDataAarry = [Dictionary<String,String>]()
